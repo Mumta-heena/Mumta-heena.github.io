@@ -1,116 +1,1107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Your existing head content remains the same -->
-    <!-- ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumtaheena Binte Ahmed | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Your existing styles remain the same until the volunteer section */
-        
-        /* Updated Volunteer Gallery Styles */
-        .volunteer-gallery {
-            position: relative;
-            margin: 2rem 0;
+        :root {
+            --dark-bg: #0a0a0a;
+            --light-bg: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent-color: #6e45e2;
+            --accent-light: #8a6eff;
+            --section-padding: 120px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 180px 5% 100px;
+            display: flex;
+            align-items: center;
+            position: relative;
             overflow: hidden;
         }
 
-        .gallery-scroll {
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(110, 69, 226, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent-color);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(110, 69, 226, 0.3);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            gap: 1.5rem;
-            padding: 1rem 0;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
         }
 
-        .gallery-scroll::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
+        .scroll-down i {
+            margin-bottom: 5px;
+            animation: bounce 2s infinite;
         }
 
-        .gallery-item {
-            scroll-snap-align: start;
-            flex: 0 0 300px; /* Fixed width for each item */
-            height: 200px;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--section-padding) 5%;
             position: relative;
         }
 
-        .gallery-item img {
+        .section-title {
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .section-title .number {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skills h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(110, 69, 226, 0.2);
+            color: var(--accent-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            padding: 1.8rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .project-links a:first-child {
+            color: var(--accent-color);
+        }
+
+        .project-links a:last-child {
+            color: var(--text-secondary);
+        }
+
+        .project-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Design Work Section */
+        .design {
+            background-color: var(--light-bg);
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .design-card {
+            background-color: var(--dark-bg);
+            border-radius: 15px;
+            overflow: hidden;
             transition: transform 0.3s;
         }
 
-        .gallery-item img:hover {
+        .design-card:hover {
             transform: scale(1.03);
         }
 
-        .scroll-btn {
+        .design-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .design-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design-info {
+            padding: 1.5rem;
+        }
+
+        .design-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .design-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Education Section */
+        .education-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-item::before {
+            content: '';
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .education-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 40px;
             height: 40px;
-            background-color: rgba(110, 69, 226, 0.8);
-            border: none;
+            background-color: var(--accent-color);
             border-radius: 50%;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10;
-            transition: all 0.3s;
-            opacity: 0.8;
+            color: white;
+            font-size: 1.2rem;
         }
 
-        .scroll-btn:hover {
+        .education-content {
+            flex: 1;
+        }
+
+        .education-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .education-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-institution {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .education-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-bg);
+        }
+
+        .profile-pic {
+        width: 100%;
+        max-width: 400px; /* Adjust this value as needed */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 20px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        animation: float 6s ease-in-out infinite;
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+        aspect-ratio: 3/4; /* Adjust to match your photo's proportions (e.g., 1/1 for square) */
+        }
+
+        /* For the about section image */
+        .about-image img {
+            width: 100%;
+            max-width: 500px; /* Adjust as needed */
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            aspect-ratio: 3/4; /* Match your photo's proportions */
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
             background-color: var(--accent-color);
-            opacity: 1;
-            transform: translateY(-50%) scale(1.1);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
-        .scroll-btn.left {
-            left: 15px;
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .scroll-btn.right {
-            right: 15px;
+        .contact-text p, .contact-text a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        /* Hide buttons when not scrollable */
-        .scroll-btn.hidden {
-            display: none;
+        .contact-text a:hover {
+            color: var(--text-primary);
         }
 
-        /* Responsive adjustments */
+        .contact-form {
+            background-color: var(--dark-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-light);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--accent-color);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        /* Work Experience Section */
+.experience {
+    background-color: var(--light-bg);
+}
+
+.experience-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-left: 60px;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--accent-color);
+}
+
+.experience-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.experience-content {
+    flex: 1;
+}
+
+.experience-date {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.experience-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-company {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.experience-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 1rem;
+}
+
+.experience-description li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.experience-description li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Update the contact section number */
+#contact .number {
+    content: "06"; /* Update this to be one higher than experience */
+}
+
+.skill-tag {
+    background-color: rgba(110, 69, 226, 0.2);
+    color: var(--accent-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-tag i {
+    font-size: 1.1rem;
+    width: 1.2rem;
+    text-align: center;
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.skill-tag:hover i {
+    color: white;
+}
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            :root {
+                --section-padding: 100px;
+            }
+
+            .hero-text h1 {
+                font-size: 4rem;
+            }
+        }
+
         @media (max-width: 992px) {
-            .gallery-item {
-                flex: 0 0 250px; /* Smaller items on tablets */
-                height: 180px;
+            .hero-content,
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text {
+                order: 1;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 80px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--dark-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 3rem 0;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .projects-grid,
+            .design-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 576px) {
-            .gallery-item {
-                flex: 0 0 200px; /* Even smaller on mobile */
-                height: 150px;
+            :root {
+                --section-padding: 60px;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+                letter-spacing: -1px;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .education-item {
+                padding-left: 50px;
+            }
+
+            .education-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+
+            .education-title {
+                font-size: 1.2rem;
             }
         }
 
-        /* Update contact section number */
-        #contact .number {
-            content: "07";
-        }
+        /* Volunteer Work Section */
+.volunteer {
+    background-color: var(--dark-bg);
+}
+
+.volunteer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.volunteer-item {
+    background-color: var(--light-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.volunteer-item:last-child {
+    margin-bottom: 0;
+}
+
+.volunteer-header {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.volunteer-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.volunteer-date {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.volunteer-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.volunteer-org {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.volunteer-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+/* Image Gallery Styles */
+/* Volunteer Work Section */
+.volunteer-gallery {
+    position: relative;
+    margin: 2rem 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-scroll {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.gallery-scroll::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.gallery-item {
+    scroll-snap-align: start;
+    flex: 0 0 calc(33.333% - 1rem); /* Show 3 items at a time */
+    min-width: 300px; /* Minimum width for each item */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(110, 69, 226, 0.8);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all 0.3s;
+    opacity: 0.8;
+}
+
+.scroll-btn:hover {
+    background-color: var(--accent-color);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn.left {
+    left: 15px;
+}
+
+.scroll-btn.right {
+    right: 15px;
+}
+
+/* Hide buttons when not scrollable */
+.scroll-btn.hidden {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .gallery-item {
+        flex: 0 0 calc(50% - 1rem); /* Show 2 items on tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-item {
+        flex: 0 0 100%; /* Show 1 item on mobile */
+    }
+}
+
+/* Update contact section number */
+#contact .number {
+    content: "07";
+}
     </style>
 </head>
 <body>
-
     <!-- Navigation -->
     <header>
         <a href="#" class="logo">Mumtaheena<span>Binte</span><span>Ahmed</span></a>
@@ -538,54 +1529,54 @@
 </section>
 
 <!-- Volunteer Experiences -->
-    <section class="section volunteer" id="volunteer">
-        <div class="section-title">
-            <span class="number">06</span>
-            <h2>Volunteer Works</h2>
-        </div>
-        
-        <div class="volunteer-container">
-            <!-- Volunteer Experience 1 -->
-            <div class="volunteer-item">
-                <div class="volunteer-content">
-                    <div class="volunteer-header">
-                        <div class="volunteer-icon">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <div>
-                            <div class="volunteer-date">November 2022</div>
-                            <h3 class="volunteer-title">45th ICPC World Finals, Dhaka</h3>
-                            <div class="volunteer-org">International Collegiate Programming Contest</div>
-                        </div>
+<section class="section volunteer" id="volunteer">
+    <div class="section-title">
+        <span class="number">06</span>
+        <h2>Volunteer Works</h2>
+    </div>
+    
+    <div class="volunteer-container">
+        <!-- Volunteer Experience 1 -->
+        <div class="volunteer-item">
+            <div class="volunteer-content">
+                <div class="volunteer-header">
+                    <div class="volunteer-icon">
+                        <i class="fas fa-tree"></i>
                     </div>
-                    <p class="volunteer-description">
-                        Facilitated participant transportation from hotels to the venue.
-                        Helped to manage participant flow in crowded areas.
-                        Providing directions to participants, guiding them to specific areas.
-                    </p>
-                    
-                    <!-- Image Gallery -->
-                    <div class="volunteer-gallery">
-                        <div class="gallery-scroll">
-                            <div class="gallery-item"><img src="images/ICPC/1.jpg" alt="Me inside the Venue"></div>
-                            <div class="gallery-item"><img src="images/ICPC/11.jpg" alt="Transport Team photo"></div>
-                            <div class="gallery-item"><img src="images/ICPC/2.jpg" alt="World Champion 1"></div>
-                            <div class="gallery-item"><img src="images/ICPC/3.jpg" alt="World Champion 2"></div>
-                            <div class="gallery-item"><img src="images/ICPC/4.jpg" alt="With our Dean Sir"></div>
-                            <div class="gallery-item"><img src="images/ICPC/5.jpg" alt="With our Dean Sirs"></div>
-                            <div class="gallery-item"><img src="images/ICPC/6.jpg" alt="Board"></div>
-                            <div class="gallery-item"><img src="images/ICPC/7.jpg" alt="Participants' Areas"></div>
-                            <div class="gallery-item"><img src="images/ICPC/8.jpg" alt="Evening View"></div>
-                            <div class="gallery-item"><img src="images/ICPC/12.jpg" alt="Catto"></div>                        
-                        </div>
-                        <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
-                        <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
+                    <div>
+                        <div class="volunteer-date">November 2022</div>
+                        <h3 class="volunteer-title">45th ICPC World Finals, Dhaka</h3>
+                        <div class="volunteer-org">International Collegiate Programming Contest</div>
                     </div>
+                </div>
+                <p class="volunteer-description">
+                    Facilitated participant transportation from hotels to the venue.
+                    Helped to manage participant flow in crowded areas.
+                    Providing directions to participants, guiding them to specific areas.
+
+                </p>
+                
+                <!-- Image Gallery -->
+                <div class="volunteer-gallery">
+                    <div class="gallery-scroll">
+                        <div class="gallery-item"><img src="images\ICPC\1.jpg" alt="Me inside the Venue"></div>
+                        <div class="gallery-item"><img src="images\ICPC\11.jpg" alt="Transport Team photo"></div>
+                        <div class="gallery-item"><img src="images\ICPC\2.jpg" alt="World Champion 1"></div>
+                        <div class="gallery-item"><img src="images\ICPC\3.jpg" alt="World Champion 2"></div>
+                        <div class="gallery-item"><img src="images\ICPC\4.jpg" alt="With our Dean Sir"></div>
+                        <div class="gallery-item"><img src="images\ICPC\5.jpg" alt="With our Dean Sirs"></div>
+                        <div class="gallery-item"><img src="images\ICPC\6.jpg" alt="Board"></div>
+                        <div class="gallery-item"><img src="images\ICPC\7.jpg" alt="Participants' Areas"></div>
+                        <div class="gallery-item"><img src="images\ICPC\8.jpg" alt="Evening View"></div>
+                        <div class="gallery-item"><img src="images\ICPC\12.jpg" alt="Catto"></div>                        
+                    </div>
+                    <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
+                    <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
@@ -662,60 +1653,6 @@
     </footer>
 
     <script>
-        // Volunteer Gallery Scroll Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleries = document.querySelectorAll('.volunteer-gallery');
-            
-            galleries.forEach(gallery => {
-                const scrollContainer = gallery.querySelector('.gallery-scroll');
-                const leftBtn = gallery.querySelector('.scroll-btn.left');
-                const rightBtn = gallery.querySelector('.scroll-btn.right');
-                const galleryItems = gallery.querySelectorAll('.gallery-item');
-                
-                // Set initial button visibility
-                updateButtonVisibility();
-                
-                // Scroll left button
-                leftBtn.addEventListener('click', () => {
-                    scrollContainer.scrollBy({
-                        left: -300,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Scroll right button
-                rightBtn.addEventListener('click', () => {
-                    scrollContainer.scrollBy({
-                        left: 300,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Update button visibility on scroll
-                scrollContainer.addEventListener('scroll', updateButtonVisibility);
-                
-                function updateButtonVisibility() {
-                    // Show/hide left button
-                    if (scrollContainer.scrollLeft <= 10) {
-                        leftBtn.classList.add('hidden');
-                    } else {
-                        leftBtn.classList.remove('hidden');
-                    }
-                    
-                    // Show/hide right button
-                    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-                    if (scrollContainer.scrollLeft >= maxScroll - 10) {
-                        rightBtn.classList.add('hidden');
-                    } else {
-                        rightBtn.classList.remove('hidden');
-                    }
-                }
-                
-                // Also update on window resize
-                window.addEventListener('resize', updateButtonVisibility);
-            });
-        });
-
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
