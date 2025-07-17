@@ -1003,102 +1003,105 @@
 /* Image Gallery Styles */
 /* Volunteer Work Section */
 .volunteer-gallery {
-    position: relative;
-    margin: 2rem 0;
-    width: 100%;
-    overflow: hidden;
-}
+            position: relative;
+            margin: 2rem 0;
+            width: 100%;
+            overflow: hidden;
+        }
 
-.gallery-scroll {
-    display: flex;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-}
+        .gallery-scroll {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
 
-.gallery-scroll::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-}
+        .gallery-scroll::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
 
-.gallery-item {
-    scroll-snap-align: start;
-    flex: 0 0 calc(33.333% - 1rem); /* Show 3 items at a time */
-    min-width: 300px; /* Minimum width for each item */
-}
+        .gallery-item {
+            scroll-snap-align: start;
+            flex: 0 0 300px; /* Fixed width for each item */
+            height: 200px;
+            position: relative;
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-}
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
 
-.gallery-item img:hover {
-    transform: scale(1.03);
-}
+        .gallery-item img:hover {
+            transform: scale(1.03);
+        }
 
-.scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: rgba(110, 69, 226, 0.8);
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    transition: all 0.3s;
-    opacity: 0.8;
-}
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(110, 69, 226, 0.8);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+            opacity: 0.8;
+        }
 
-.scroll-btn:hover {
-    background-color: var(--accent-color);
-    opacity: 1;
-    transform: translateY(-50%) scale(1.1);
-}
+        .scroll-btn:hover {
+            background-color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
 
-.scroll-btn.left {
-    left: 15px;
-}
+        .scroll-btn.left {
+            left: 15px;
+        }
 
-.scroll-btn.right {
-    right: 15px;
-}
+        .scroll-btn.right {
+            right: 15px;
+        }
 
-/* Hide buttons when not scrollable */
-.scroll-btn.hidden {
-    display: none;
-}
+        /* Hide buttons when not scrollable */
+        .scroll-btn.hidden {
+            display: none;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .gallery-item {
-        flex: 0 0 calc(50% - 1rem); /* Show 2 items on tablets */
-    }
-}
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .gallery-item {
+                flex: 0 0 250px; /* Smaller items on tablets */
+                height: 180px;
+            }
+        }
 
-@media (max-width: 576px) {
-    .gallery-item {
-        flex: 0 0 100%; /* Show 1 item on mobile */
-    }
-}
+        @media (max-width: 576px) {
+            .gallery-item {
+                flex: 0 0 200px; /* Even smaller on mobile */
+                height: 150px;
+            }
+        }
 
-/* Update contact section number */
-#contact .number {
-    content: "07";
-}
+        /* Update contact section number */
+        #contact .number {
+            content: "07";
+        }
     </style>
 </head>
 <body>
@@ -1529,54 +1532,53 @@
 </section>
 
 <!-- Volunteer Experiences -->
-<section class="section volunteer" id="volunteer">
-    <div class="section-title">
-        <span class="number">06</span>
-        <h2>Volunteer Works</h2>
-    </div>
-    
-    <div class="volunteer-container">
-        <!-- Volunteer Experience 1 -->
-        <div class="volunteer-item">
-            <div class="volunteer-content">
-                <div class="volunteer-header">
-                    <div class="volunteer-icon">
-                        <i class="fas fa-tree"></i>
+    <section class="section volunteer" id="volunteer">
+        <div class="section-title">
+            <span class="number">06</span>
+            <h2>Volunteer Works</h2>
+        </div>
+        
+        <div class="volunteer-container">
+            <!-- Volunteer Experience 1 -->
+            <div class="volunteer-item">
+                <div class="volunteer-content">
+                    <div class="volunteer-header">
+                        <div class="volunteer-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div>
+                            <div class="volunteer-date">November 2022</div>
+                            <h3 class="volunteer-title">45th ICPC World Finals, Dhaka</h3>
+                            <div class="volunteer-org">International Collegiate Programming Contest</div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="volunteer-date">November 2022</div>
-                        <h3 class="volunteer-title">45th ICPC World Finals, Dhaka</h3>
-                        <div class="volunteer-org">International Collegiate Programming Contest</div>
+                    <p class="volunteer-description">
+                        Facilitated participant transportation from hotels to the venue.
+                        Helped to manage participant flow in crowded areas.
+                        Providing directions to participants, guiding them to specific areas.
+                    </p>
+                    
+                    <!-- Image Gallery -->
+                    <div class="volunteer-gallery">
+                        <div class="gallery-scroll">
+                            <div class="gallery-item"><img src="images/ICPC/1.jpg" alt="Me inside the Venue"></div>
+                            <div class="gallery-item"><img src="images/ICPC/11.jpg" alt="Transport Team photo"></div>
+                            <div class="gallery-item"><img src="images/ICPC/2.jpg" alt="World Champion 1"></div>
+                            <div class="gallery-item"><img src="images/ICPC/3.jpg" alt="World Champion 2"></div>
+                            <div class="gallery-item"><img src="images/ICPC/4.jpg" alt="With our Dean Sir"></div>
+                            <div class="gallery-item"><img src="images/ICPC/5.jpg" alt="With our Dean Sirs"></div>
+                            <div class="gallery-item"><img src="images/ICPC/6.jpg" alt="Board"></div>
+                            <div class="gallery-item"><img src="images/ICPC/7.jpg" alt="Participants' Areas"></div>
+                            <div class="gallery-item"><img src="images/ICPC/8.jpg" alt="Evening View"></div>
+                            <div class="gallery-item"><img src="images/ICPC/12.jpg" alt="Catto"></div>                        
+                        </div>
+                        <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
+                        <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                </div>
-                <p class="volunteer-description">
-                    Facilitated participant transportation from hotels to the venue.
-                    Helped to manage participant flow in crowded areas.
-                    Providing directions to participants, guiding them to specific areas.
-
-                </p>
-                
-                <!-- Image Gallery -->
-                <div class="volunteer-gallery">
-                    <div class="gallery-scroll">
-                        <div class="gallery-item"><img src="images\ICPC\1.jpg" alt="Me inside the Venue"></div>
-                        <div class="gallery-item"><img src="images\ICPC\11.jpg" alt="Transport Team photo"></div>
-                        <div class="gallery-item"><img src="images\ICPC\2.jpg" alt="World Champion 1"></div>
-                        <div class="gallery-item"><img src="images\ICPC\3.jpg" alt="World Champion 2"></div>
-                        <div class="gallery-item"><img src="images\ICPC\4.jpg" alt="With our Dean Sir"></div>
-                        <div class="gallery-item"><img src="images\ICPC\5.jpg" alt="With our Dean Sirs"></div>
-                        <div class="gallery-item"><img src="images\ICPC\6.jpg" alt="Board"></div>
-                        <div class="gallery-item"><img src="images\ICPC\7.jpg" alt="Participants' Areas"></div>
-                        <div class="gallery-item"><img src="images\ICPC\8.jpg" alt="Evening View"></div>
-                        <div class="gallery-item"><img src="images\ICPC\12.jpg" alt="Catto"></div>                        
-                    </div>
-                    <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
-                    <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Contact Section -->
     <section class="section contact" id="contact">
@@ -1667,6 +1669,59 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('fa-times');
+            });
+        });
+        // Volunteer gallery scroll functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleries = document.querySelectorAll('.volunteer-gallery');
+            
+            galleries.forEach(gallery => {
+                const scrollContainer = gallery.querySelector('.gallery-scroll');
+                const leftBtn = gallery.querySelector('.scroll-btn.left');
+                const rightBtn = gallery.querySelector('.scroll-btn.right');
+                const galleryItems = gallery.querySelectorAll('.gallery-item');
+                
+                // Set initial button visibility
+                updateButtonVisibility();
+                
+                // Scroll left button
+                leftBtn.addEventListener('click', () => {
+                    scrollContainer.scrollBy({
+                        left: -300,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Scroll right button
+                rightBtn.addEventListener('click', () => {
+                    scrollContainer.scrollBy({
+                        left: 300,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Update button visibility on scroll
+                scrollContainer.addEventListener('scroll', updateButtonVisibility);
+                
+                function updateButtonVisibility() {
+                    // Show/hide left button
+                    if (scrollContainer.scrollLeft <= 10) {
+                        leftBtn.classList.add('hidden');
+                    } else {
+                        leftBtn.classList.remove('hidden');
+                    }
+                    
+                    // Show/hide right button
+                    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                    if (scrollContainer.scrollLeft >= maxScroll - 10) {
+                        rightBtn.classList.add('hidden');
+                    } else {
+                        rightBtn.classList.remove('hidden');
+                    }
+                }
+                
+                // Also update on window resize
+                window.addEventListener('resize', updateButtonVisibility);
             });
         });
 
