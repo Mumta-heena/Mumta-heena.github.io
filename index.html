@@ -695,6 +695,126 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
+        /* Work Experience Section */
+.experience {
+    background-color: var(--light-bg);
+}
+
+.experience-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-item {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-left: 60px;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: var(--accent-color);
+}
+
+.experience-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.experience-content {
+    flex: 1;
+}
+
+.experience-date {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.experience-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-company {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.experience-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 1rem;
+}
+
+.experience-description li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.experience-description li::before {
+    content: '•';
+    color: var(--accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Update the contact section number */
+#contact .number {
+    content: "06"; /* Update this to be one higher than experience */
+}
+
+.skill-tag {
+    background-color: rgba(110, 69, 226, 0.2);
+    color: var(--accent-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-tag i {
+    font-size: 1.1rem;
+    width: 1.2rem;
+    text-align: center;
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.skill-tag:hover i {
+    color: white;
+}
 
         /* Responsive Design */
         @media (max-width: 1200px) {
@@ -868,20 +988,21 @@
                 <p>I'm a passionate developer and designer with expertise in both coding and visual design. My unique combination of technical and creative skills allows me to bridge the gap between functionality and aesthetics.</p>
                 <p>With 3 years of experience in the industry, I've worked on a variety of projects ranging from web applications to branding and digital art. I believe in creating solutions that are not only efficient but also visually compelling.</p>
                 <div class="skills">
-                    <h4>My Skills</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">UI/UX Design</span>
-                        <span class="skill-tag">Figma</span>
-                        <span class="skill-tag">HTML/CSS</span>
-                        <span class="skill-tag">Graphic Design</span>
-                        <span class="skill-tag">Project Management</span>
-                    </div>
-                </div>
+    <h4>My Skills</h4>
+    <div class="skill-tags">
+        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+        <span class="skill-tag"><i class="fas fa-server"></i> Django</span>
+        <span class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</span>
+        <span class="skill-tag"><i class="fas fa-code"></i> TypeScript</span>
+        <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
+        <span class="skill-tag"><i class="fas fa-pencil-ruler"></i> UI/UX Design</span>
+        <span class="skill-tag"><i class="fab fa-figma"></i> Figma</span>
+        <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+        <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+        <span class="skill-tag"><i class="fas fa-paint-brush"></i> Graphic Design</span>
+        <span class="skill-tag"><i class="fas fa-tasks"></i> Project Management</span>
+    </div>
+</div>
             </div>
         </div>
     </section>
@@ -1008,7 +1129,7 @@
     <section class="section design" id="design">
         <div class="section-title">
             <span class="number">03</span>
-            <h2>Design Work</h2>
+            <h2>Design Works</h2>
         </div>
         <div class="design-grid">
             <!-- Design 1 -->
@@ -1142,6 +1263,105 @@
         </div>
     </section>
 
+    <!-- Work Experiences -->
+<section class="section experience" id="experience">
+    <div class="section-title">
+        <span class="number">05</span>
+        <h2>Work Experience</h2>
+    </div>
+    <div class="experience-container">
+        <!-- Experience 1 -->
+        <div class="experience-item">
+            <div class="experience-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+                <div class="experience-date">April 2025 - Present</div>
+                <h3 class="experience-title">UI/UX Designer</h3>
+                <div class="experience-company">Sprint Devs</div>
+                <ul class="experience-description">
+                    <li>Migrated UI to Figma for more funtionality</li>
+                    <li>Conducted user research and collaborated with teams to design new page features</li>
+                    <li>Prepared wireframes and prototypes for Employee Management System</li>
+                    <li>Collaborated with developers to ensure design implementation accuracy</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="experience-item">
+            <div class="experience-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+                <div class="experience-date">Aug 2024 - Oct 2024</div>
+                <h3 class="experience-title">Content Writer</h3>
+                <div class="experience-company">247SEO</div>
+                <ul class="experience-description">
+                    <li>Created engaging content on food and recipes</li>
+                    <li>Collaborated with the team to generate new content ideas</li>
+                    <li>Prepared recipe content for seamless presentation on the website</li>
+                    <li>Improved page visualization and generated AI images for individual recipes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="experience-item">
+            <div class="experience-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+                <div class="experience-date">Jul 2023 - Sep 2023</div>
+                <h3 class="experience-title">Content Manager</h3>
+                <div class="experience-company">VisaCent</div>
+                <ul class="experience-description">
+                    <li>Created new content for Visa News and travel topics</li>
+                    <li>Collaborated with the team to brainstorm and generate fresh content ideas</li>
+                    <li>Edited, proofread, and updated previous content to ensure relevance and accuracy</li>
+                    <li>Managed team meetings to discuss new ideas and contributed to projects involving AI image generation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience 4 -->
+        <div class="experience-item">
+            <div class="experience-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+                <div class="experience-date">Dec 2020 - Jan  2023</div>
+                <h3 class="experience-title">QA Analyst and Content Writer</h3>
+                <div class="experience-company">VisaCent</div>
+                <ul class="experience-description">
+                    <li>Edited and analyzed Visa content and application guides</li>
+                    <li>Proofread web content, and updated content for recent news</li>
+                    <li>Edited, proofread, and updated previous content to ensure relevance and accuracy</li>
+                    <li>Maintained up-to-date information for Visa News and travel-related topics, ensuring accuracy and relevance across all platforms</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience 5 -->
+        <div class="experience-item">
+            <div class="experience-icon">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="experience-content">
+                <div class="experience-date">Jul 2020 - Mar 2021</div>
+                <h3 class="experience-title">Graphics Designer and Content Writer</h3>
+                <div class="experience-company">Upwork Inc.</div>
+                <ul class="experience-description">
+                    <li>Refined and rewrote articles to improve their impact</li>
+                    <li>Translated advertisements from English to Bangla</li>
+                    <li>Created content for an Islamic Prayer Guide app</li>
+                    <li>Designed weekly workbooks, ensuring all materials were both engaging and professional</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="section-title">
@@ -1152,7 +1372,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fa-light fa-envelope"></i>
+                        <i class="fas fa-envelope"></i>
                     </div>
                     <div class="contact-text">
                         <h4>Email</h4>
@@ -1169,8 +1389,8 @@
                     </div>
                 </div>
                 <div class="contact-item">
-                    <div class="education-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <div class="contact-text">
                         <h4>Location</h4>
