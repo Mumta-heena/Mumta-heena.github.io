@@ -14,8 +14,8 @@
             --light-bg: #1a1a1a;
             --text-primary: #ffffff;
             --text-secondary: #b3b3b3;
-            --accent-color: #6e45e2;
-            --accent-light: #8a6eff;
+            --accent-color: #6e45e2; /* Your primary accent color */
+            --accent-light: #8a6eff; /* A lighter shade of your accent color */
             --section-padding: 120px;
         }
 
@@ -284,17 +284,30 @@
         }
 
         .skill-tag {
-            background-color: rgba(110, 69, 226, 0.2);
+            background-color: rgba(110, 69, 226, 0.2); /* Using rgba with accent-color */
             color: var(--accent-color);
             padding: 0.6rem 1.2rem;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tag i {
+            font-size: 1.1rem;
+            width: 1.2rem;
+            text-align: center;
         }
 
         .skill-tag:hover {
             background-color: var(--accent-color);
+            color: white;
+        }
+
+        .skill-tag:hover i {
             color: white;
         }
 
@@ -518,15 +531,15 @@
         }
 
         .profile-pic {
-        width: 100%;
-        max-width: 400px; /* Adjust this value as needed */
-        height: auto; /* Maintain aspect ratio */
-        border-radius: 20px;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
-                    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        animation: float 6s ease-in-out infinite;
-        object-fit: cover; /* Ensures the image covers the area without distortion */
-        aspect-ratio: 3/4; /* Adjust to match your photo's proportions (e.g., 1/1 for square) */
+            width: 100%;
+            max-width: 400px; /* Adjust this value as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            animation: float 6s ease-in-out infinite;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            aspect-ratio: 3/4; /* Adjust to match your photo's proportions (e.g., 1/1 for square) */
         }
 
         /* For the about section image */
@@ -588,8 +601,9 @@
             color: var(--text-primary);
         }
 
+        /* Contact Form Styles (Updated to use variables) */
         .contact-form {
-            background-color: var(--dark-bg);
+            background-color: var(--dark-bg); /* Use dark-bg for form background */
             padding: 2.5rem;
             border-radius: 15px;
         }
@@ -602,13 +616,14 @@
             display: block;
             margin-bottom: 0.8rem;
             font-weight: 500;
+            color: var(--text-primary); /* Ensure label color is primary text */
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent white for input background */
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             font-size: 1rem;
@@ -619,7 +634,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-color: var(--accent-color); /* Accent color on focus */
         }
 
         .form-group textarea {
@@ -696,125 +711,258 @@
             font-size: 0.9rem;
         }
         /* Work Experience Section */
-.experience {
-    background-color: var(--light-bg);
-}
+        .experience {
+            background-color: var(--light-bg);
+        }
 
-.experience-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+        .experience-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.experience-item {
-    display: flex;
-    margin-bottom: 3rem;
-    position: relative;
-    padding-left: 60px;
-}
+        .experience-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 60px;
+        }
 
-.experience-item:last-child {
-    margin-bottom: 0;
-}
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
 
-.experience-item::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background-color: var(--accent-color);
-}
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--accent-color);
+        }
 
-.experience-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 40px;
-    height: 40px;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-}
+        .experience-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
 
-.experience-content {
-    flex: 1;
-}
+        .experience-content {
+            flex: 1;
+        }
 
-.experience-date {
-    color: var(--accent-color);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
+        .experience-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
 
-.experience-title {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-}
+        .experience-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
 
-.experience-company {
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
+        .experience-company {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
 
-.experience-description {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    padding-left: 1rem;
-}
+        .experience-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 1rem;
+        }
 
-.experience-description li {
-    margin-bottom: 0.5rem;
-    position: relative;
-}
+        .experience-description li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
 
-.experience-description li::before {
-    content: '•';
-    color: var(--accent-color);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-}
+        .experience-description li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
 
-/* Update the contact section number */
-#contact .number {
-    content: "06"; /* Update this to be one higher than experience */
-}
+        /* Update the contact section number */
+        #contact .number {
+            content: "06"; /* Update this to be one higher than experience */
+        }
 
-.skill-tag {
-    background-color: rgba(110, 69, 226, 0.2);
-    color: var(--accent-color);
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        /* Volunteer Work Section */
+        .volunteer {
+            background-color: var(--dark-bg);
+        }
 
-.skill-tag i {
-    font-size: 1.1rem;
-    width: 1.2rem;
-    text-align: center;
-}
+        .volunteer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-.skill-tag:hover {
-    background-color: var(--accent-color);
-    color: white;
-}
+        .volunteer-item {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
 
-.skill-tag:hover i {
-    color: white;
-}
+        .volunteer-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .volunteer-header {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+
+        .volunteer-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .volunteer-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .volunteer-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .volunteer-org {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .volunteer-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* Image Gallery Styles */
+        .volunteer-gallery {
+            position: relative;
+            margin: 2rem 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .gallery-item {
+            scroll-snap-align: start;
+            flex: 0 0 300px; /* Fixed width for each item */
+            height: 200px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.03);
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(110, 69, 226, 0.8); /* Using rgba with accent-color */
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+            opacity: 0.8;
+        }
+
+        .scroll-btn:hover {
+            background-color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-btn.left {
+            left: 15px;
+        }
+
+        .scroll-btn.right {
+            right: 15px;
+        }
+
+        /* Hide buttons when not scrollable */
+        .scroll-btn.hidden {
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .gallery-item {
+                flex: 0 0 250px; /* Smaller items on tablets */
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-item {
+                flex: 0 0 200px; /* Even smaller on mobile */
+                height: 150px;
+            }
+        }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
@@ -936,173 +1084,105 @@
             }
         }
 
-        /* Volunteer Work Section */
-.volunteer {
-    background-color: var(--dark-bg);
-}
-
-.volunteer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.volunteer-item {
-    background-color: var(--light-bg);
-    border-radius: 15px;
-    padding: 2rem;
-    margin-bottom: 3rem;
-}
-
-.volunteer-item:last-child {
-    margin-bottom: 0;
-}
-
-.volunteer-header {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    align-items: center;
-}
-
-.volunteer-icon {
-    width: 50px;
-    height: 50px;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    flex-shrink: 0;
-}
-
-.volunteer-date {
-    color: var(--accent-color);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
-}
-
-.volunteer-title {
-    font-size: 1.4rem;
-    margin-bottom: 0.3rem;
-}
-
-.volunteer-org {
-    color: var(--text-secondary);
-    font-weight: 500;
-}
-
-.volunteer-description {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.7;
-}
-
-/* Image Gallery Styles */
-/* Volunteer Work Section */
-.volunteer-gallery {
-            position: relative;
-            margin: 2rem 0;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .gallery-scroll {
-            display: flex;
-            gap: 1.5rem;
-            padding: 1rem 0;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
-        }
-
-        .gallery-scroll::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
-
-        .gallery-item {
-            scroll-snap-align: start;
-            flex: 0 0 300px; /* Fixed width for each item */
-            height: 200px;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.03);
-        }
-
-        .scroll-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background-color: rgba(110, 69, 226, 0.8);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            transition: all 0.3s;
-            opacity: 0.8;
-        }
-
-        .scroll-btn:hover {
-            background-color: var(--accent-color);
-            opacity: 1;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .scroll-btn.left {
-            left: 15px;
-        }
-
-        .scroll-btn.right {
-            right: 15px;
-        }
-
-        /* Hide buttons when not scrollable */
-        .scroll-btn.hidden {
-            display: none;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .gallery-item {
-                flex: 0 0 250px; /* Smaller items on tablets */
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-item {
-                flex: 0 0 200px; /* Even smaller on mobile */
-                height: 150px;
-            }
-        }
-
         /* Update contact section number */
         #contact .number {
-            content: "07";
+            content: "07"; /* Adjusted to 07, assuming Volunteer Work is 06 */
+        }
+
+        /* NEW MODAL STYLES */
+        .modal-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it's on top */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: var(--light-bg); /* Use light-bg for modal content */
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-content h3 {
+            color: var(--accent-color); /* Use accent color for modal heading */
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .modal-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: var(--text-secondary); /* Use text-secondary for modal paragraph */
+        }
+
+        .modal-close-btn {
+            background-color: var(--accent-color); /* Use accent color for close button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            background-color: var(--accent-light); /* Use accent-light on hover */
+        }
+
+        /* NEW LOADING INDICATOR STYLES */
+        .loading-indicator {
+            display: none; /* Hidden by default */
+            text-align: center;
+            margin-top: 20px;
+            color: var(--accent-color); /* Use accent color for loading text */
+            font-size: 1.1em;
+        }
+
+        .loading-indicator.active {
+            display: block;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--accent-color); /* Use accent color for spinner */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
+
 </head>
 <body>
     <!-- Navigation -->
@@ -1618,61 +1698,84 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="section contact" id="contact">
-        <div class="section-title">
-            <span class="number">05</span>
-            <h2>Get In Touch</h2>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h4>Email</h4>
-                        <a href="mumtaheenaahmed24@gmail.com">mumtaheenaahmed24@gmail.com</a>
-                    </div>
+    <div class="section-title">
+        <!-- Updated section number to 07, assuming it's the 7th section now -->
+        <span class="number">07</span>
+        <h2>Get In Touch</h2>
+    </div>
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h4>Phone</h4>
-                        <a href="tel:+8801865074193">+8801865074193</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h4>Location</h4>
-                        <p>Mirpur, Dhaka, Bangladesh</p>
-                    </div>
+                <div class="contact-text">
+                    <h4>Email</h4>
+                    <!-- Corrected mailto: link -->
+                    <a href="mailto:mumtaheenaahmed24@gmail.com">mumtaheenaahmed24@gmail.com</a>
                 </div>
             </div>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Phone</h4>
+                    <a href="tel:+8801865074193">+8801865074193</a>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-text">
+                    <h4>Location</h4>
+                    <a href="https://www.google.com/maps/place/Mirpur,+Dhaka/@23.8104699,90.3622807,14z/data=!3m1!4b1!4m6!3m5!1s0x3755c0c1c61277db:0xc7d18838730e2e59!8m2!3d23.8223486!4d90.3654204!16s%2Fm%2F02phghv?entry=ttu&g_ep=EgoyMDI1MDcxNS4xIKXMDSoASAFQAw%3D%3D">Mirpur, Dhaka, Bangladesh</a>
+                </div>
             </div>
         </div>
-    </section>
+        <div class="contact-form">
+            <!-- Form updated for Formsubmit.co with ID and name attributes -->
+            <form id="contactForm" action="https://formsubmit.co/your_email@example.com" method="POST">
+                <!-- IMPORTANT: Replace 'your_email@example.com' with your actual email address -->
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required> <!-- Added name="name" -->
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required> <!-- Added name="email" -->
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea> <!-- Added name="message" -->
+                </div>
+
+                <!-- Hidden inputs for Formsubmit.co configuration -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio!">
+                <input type="hidden" name="_captcha" value="false">
+                <!-- _next hidden input is NOT needed here as JS handles the success pop-up -->
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+            <!-- Loading Indicator for form submission -->
+            <div id="loadingIndicator" class="loading-indicator">
+                <div class="loading-spinner"></div>
+                Sending message...
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The Modal/Pop-up Structure (placed outside the section for better layering) -->
+<div id="successModal" class="modal-overlay">
+    <div class="modal-content">
+        <h3>Message Sent!</h3>
+        <p>Thank you for reaching out! I've received your message and will get back to you as soon as possible.</p>
+        <button class="modal-close-btn" id="closeModalBtn">Close</button>
+    </div>
+</div>
 
     <!-- Footer -->
     <footer>
@@ -1816,6 +1919,74 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+        // Get references to the form, modal, and loading indicator elements
+    const contactForm = document.getElementById('contactForm');
+    const successModal = document.getElementById('successModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+
+    // Add an event listener for the form submission
+    contactForm.addEventListener('submit', async (event) => {
+        // Prevent the default form submission behavior (which would cause a page reload)
+        event.preventDefault();
+
+        // Show loading indicator
+        loadingIndicator.classList.add('active');
+        // Disable the submit button to prevent multiple submissions
+        const submitButton = contactForm.querySelector('.submit-btn');
+        submitButton.disabled = true;
+
+        // Get the form's action URL (where the data will be sent, i.e., Formsubmit.co)
+        const formAction = contactForm.action;
+
+        // Create a FormData object from the form, which automatically collects all input values
+        const formData = new FormData(contactForm);
+
+        try {
+            // Send the form data using the Fetch API
+            const response = await fetch(formAction, {
+                method: 'POST', // Use POST method for sending form data
+                body: formData, // The FormData object contains all form fields
+                // Formsubmit.co handles content-type automatically with FormData
+            });
+
+            // Check if the response was successful (status code 2xx)
+            if (response.ok) {
+                // If successful, show the success modal
+                successModal.classList.add('active');
+                // Clear the form fields after successful submission
+                contactForm.reset();
+            } else {
+                // If the response was not OK, log the error and show an alert
+                console.error('Form submission failed:', response.status, response.statusText);
+                // Using a simple alert for error, you could make a custom error modal too
+                alert('Oops! There was an error sending your message. Please try again later.');
+            }
+        } catch (error) {
+            // Catch any network errors or other exceptions during the fetch operation
+            console.error('Network error or unexpected issue:', error);
+            alert('An unexpected error occurred. Please check your internet connection and try again.');
+        } finally {
+            // Hide loading indicator regardless of success or failure
+            loadingIndicator.classList.remove('active');
+            // Re-enable the submit button
+            submitButton.disabled = false;
+        }
+    });
+
+    // Add event listener to the close button of the modal
+    closeModalBtn.addEventListener('click', () => {
+        // Hide the success modal when the close button is clicked
+        successModal.classList.remove('active');
+    });
+
+    // Optional: Close modal if user clicks outside the modal content
+    successModal.addEventListener('click', (event) => {
+        if (event.target === successModal) { // Check if the click was directly on the overlay
+            successModal.classList.remove('active');
+        }
+    });
     </script>
 </body>
 </html>
