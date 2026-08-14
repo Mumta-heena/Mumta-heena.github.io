@@ -3,1812 +3,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mumtaheena Binte Ahmed | Portfolio</title>
+    <title>Mumtaheena Binte Ahmed | Computer Vision &amp; NLP Researcher</title>
+    <meta name="description" content="Mumtaheena Binte Ahmed — researcher in computer vision and NLP. Teaching Assistant, Department of CSE, University of Asia Pacific.">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mumta-heena.github.io/">
+    <meta property="og:site_name" content="Mumtaheena Binte Ahmed">
+    <meta property="og:title" content="Mumtaheena Binte Ahmed | Computer Vision &amp; NLP Researcher">
+    <meta property="og:description" content="Researcher in computer vision and NLP. Teaching Assistant, Department of CSE, University of Asia Pacific.">
+    <meta property="og:image" content="https://mumta-heena.github.io/images/profile.webp">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mumtaheena Binte Ahmed | Computer Vision &amp; NLP Researcher">
+    <meta name="twitter:description" content="Researcher in computer vision and NLP. Teaching Assistant, Department of CSE, University of Asia Pacific.">
+    <meta name="twitter:image" content="https://mumta-heena.github.io/images/profile.webp">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-bg: #0a0a0a;
-            --light-bg: #1a1a1a;
-            --text-primary: #ffffff;
-            --text-secondary: #b3b3b3;
-            --accent-color: #6e45e2; /* Your primary accent color */
-            --accent-light: #8a6eff; /* A lighter shade of your accent color */
-            --section-padding: 120px;
+            --paper: #fbfaf6;
+            --paper-alt: #f3f1e9;
+            --ink: #201f1c;
+            --ink-soft: #5c574c;
+            --ink-faint: #8d8676;
+            --accent: #333a6b;
+            --accent-warm: #a8763e;
+            --rule: #e2ded2;
+            --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --measure: clamp(760px, 60vw, 980px);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: var(--sans);
+            background-color: var(--paper);
+            color: var(--ink);
+            line-height: 1.65;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation */
-        header {
+        .wrap { max-width: var(--measure); margin: 0 auto; padding: 0 24px; }
+
+        a { color: inherit; }
+
+        /* Nav */
+        header.site-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            background-color: rgba(251, 250, 246, 0.94);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--rule);
             z-index: 1000;
-            background-color: rgba(10, 10, 10, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 20px 5%;
+        }
+
+        .nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            transition: padding 0.25s ease;
         }
 
-        .logo {
-            font-size: 1.8rem;
+        .nav-name {
+            font-family: var(--serif);
+            font-size: 0.95rem;
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--ink);
             text-decoration: none;
-            letter-spacing: -0.5px;
+            white-space: nowrap;
         }
 
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
+        .nav-links { display: flex; gap: 1.6rem; list-style: none; }
 
         .nav-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--ink-soft);
             text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s;
-            position: relative;
+            white-space: nowrap;
+            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover { color: var(--accent); }
 
         .hamburger {
             display: none;
             cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            padding: 180px 5% 100px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(110, 69, 226, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
-            z-index: -1;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .hero-text h1 {
-            font-size: 5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-        }
-
-        .hero-text h1 span {
-            color: var(--accent-color);
-        }
-
-        .hero-text p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .cta-button:hover {
-            background-color: var(--accent-light);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(110, 69, 226, 0.3);
-        }
-
-        .scroll-down {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .scroll-down i {
-            margin-bottom: 5px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
-
-        /* Section Styles */
-        .section {
-            padding: var(--section-padding) 5%;
-            position: relative;
-        }
-
-        .section-title {
-            margin-bottom: 4rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .section-title .number {
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-right: 1rem;
-        }
-
-        /* About Section */
-        .about {
-            background-color: var(--light-bg);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .about-image::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--accent-color);
-            border-radius: 15px;
-            top: 20px;
-            left: 20px;
-            z-index: -1;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .skills {
-            margin-top: 2rem;
-        }
-
-        .skills h4 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            color: var(--text-primary);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .skill-tag {
-            background-color: rgba(110, 69, 226, 0.2); /* Using rgba with accent-color */
-            color: var(--accent-color);
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-tag i {
-            font-size: 1.1rem;
-            width: 1.2rem;
-            text-align: center;
-        }
-
-        .skill-tag:hover {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        .skill-tag:hover i {
-            color: white;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background-color: var(--light-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .project-image {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
-        }
-
-        .project-info {
-            padding: 1.8rem;
-        }
-
-        .project-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .project-info p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-tag {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            padding: 0.4rem 0.9rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .project-links a {
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .project-links a:first-child {
-            color: var(--accent-color);
-        }
-
-        .project-links a:last-child {
-            color: var(--text-secondary);
-        }
-
-        .project-links a:hover {
-            color: var(--text-primary);
-        }
-
-        /* Design Work Section */
-        .design {
-            background-color: var(--light-bg);
-        }
-
-        .design-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .design-card {
-            background-color: var(--dark-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .design-card:hover {
-            transform: scale(1.03);
-        }
-
-        .design-image {
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .design-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .design-info {
-            padding: 1.5rem;
-        }
-
-        .design-info h3 {
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+            color: var(--ink);
+            background: none;
+            border: none;
+            padding: 0.3rem;
         }
 
-        .design-info p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
+        /* Hero */
+        .hero { padding: 150px 0 60px; }
 
-        /* Education Section */
-        .education-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .hero-flex { display: flex; gap: 2.2rem; align-items: center; }
 
-        .education-item {
-            display: flex;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-left: 60px;
-        }
-
-        .education-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .education-item::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: var(--accent-color);
-        }
-
-        .education-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-color);
+        .hero-photo {
+            width: 152px;
+            height: 152px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .education-content {
-            flex: 1;
-        }
-
-        .education-date {
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .education-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .education-institution {
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-        }
-
-        .education-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--light-bg);
-        }
-
-        .profile-pic {
-            width: 100%;
-            max-width: 400px; /* Adjust this value as needed */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 20px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
-                        0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            animation: float 6s ease-in-out infinite;
-            object-fit: cover; /* Ensures the image covers the area without distortion */
-            aspect-ratio: 3/4; /* Adjust to match your photo's proportions (e.g., 1/1 for square) */
-        }
-
-        /* For the about section image */
-        .about-image img {
-            width: 100%;
-            max-width: 500px; /* Adjust as needed */
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
             object-fit: cover;
-            aspect-ratio: 3/4; /* Match your photo's proportions */
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-        }
-
-        .contact-icon {
-            background-color: var(--accent-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
             flex-shrink: 0;
+            border: 1px solid var(--rule);
         }
 
-        .contact-text h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.4rem;
         }
 
-        .contact-text p, .contact-text a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-text a:hover {
-            color: var(--text-primary);
-        }
-
-        /* Contact Form Styles (Updated to use variables) */
-        .contact-form {
-            background-color: var(--dark-bg); /* Use dark-bg for form background */
-            padding: 2.5rem;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
+        .hero .role {
+            font-size: 1.12rem;
+            color: var(--accent);
             font-weight: 500;
-            color: var(--text-primary); /* Ensure label color is primary text */
+            margin-bottom: 0.35rem;
         }
+
+        .hero .affil { color: var(--ink-soft); font-size: 0.97rem; margin-bottom: 1.1rem; }
+
+        .hero .links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.92rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        .hero .links a:hover { border-bottom-color: var(--accent); }
+        .hero .links .sep { color: var(--ink-faint); margin: 0 0.5rem; }
+
+        /* Sections */
+        .section { padding: 3.2rem 0; border-top: 1px solid var(--rule); }
+        .section:first-of-type { border-top: none; }
+
+        .section h2 {
+            font-family: var(--serif);
+            font-size: 1.45rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .section .lede { color: var(--ink-soft); font-size: 1.02rem; max-width: 62ch; }
+
+        /* Publications */
+        .pub { margin-bottom: 1.7rem; opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .pub:last-child { margin-bottom: 0; }
+
+        .pub h3 {
+            font-family: var(--serif);
+            font-size: 1.06rem;
+            font-weight: 600;
+            line-height: 1.45;
+            margin-bottom: 0.3rem;
+        }
+
+        .pub .authors { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 0.25rem; }
+
+        .pub .venue {
+            font-family: var(--serif);
+            font-style: italic;
+            color: var(--accent-warm);
+            font-size: 0.92rem;
+        }
+
+        /* Generic one-line items (Research, ongoing work) */
+        .item {
+            margin-bottom: 1.05rem;
+            line-height: 1.65;
+            max-width: 64ch;
+            color: var(--ink-soft);
+            font-size: 0.98rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .item:last-child { margin-bottom: 0; }
+        .item strong { font-weight: 600; color: var(--ink); }
+        .item .status { font-style: italic; color: var(--ink-faint); font-size: 0.9rem; }
+
+        /* Experience */
+        .exp {
+            margin-bottom: 1.8rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .exp:last-child { margin-bottom: 0; }
+
+        .exp-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.4rem 1rem;
+        }
+
+        .exp-role { font-weight: 600; font-size: 1.01rem; color: var(--ink); }
+        .exp-org { color: var(--ink-soft); font-size: 0.92rem; }
+        .exp-dates { color: var(--ink-faint); font-size: 0.85rem; white-space: nowrap; }
+
+        .exp ul { margin: 0.5rem 0 0 1.1rem; color: var(--ink-soft); font-size: 0.93rem; }
+        .exp ul li { margin-bottom: 0.3rem; }
+
+        .exp-line { color: var(--ink-soft); font-size: 0.96rem; }
+        .exp-line strong { color: var(--ink); }
+
+        /* Awards / Volunteer / Design — inline lines */
+        .inline-list { color: var(--ink-soft); font-size: 0.98rem; }
+        .inline-list strong { color: var(--ink); }
+        .inline-list .sep { color: var(--ink-faint); margin: 0 0.5rem; }
+        .inline-list a { color: var(--accent); text-decoration: none; }
+        .inline-list a:hover { text-decoration: underline; }
+
+        /* Service */
+        .service-item {
+            margin-bottom: 0.6rem;
+            color: var(--ink-soft);
+            font-size: 0.98rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .service-item strong { color: var(--ink); }
+        .service-item em { color: var(--accent-warm); font-style: italic; }
+
+        /* Software projects */
+        .item-title {
+            font-family: var(--serif);
+            font-size: 1.04rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.35rem;
+        }
+
+        .project p { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 0.4rem; }
+        .project .tech { color: var(--ink-faint); font-size: 0.87rem; margin-bottom: 0.35rem; }
+        .project .links a { color: var(--accent); font-size: 0.87rem; text-decoration: none; border-bottom: 1px solid transparent; }
+        .project .links a:hover { border-bottom-color: var(--accent); }
+        .project .links .sep { color: var(--ink-faint); margin: 0 0.4rem; }
+
+        /* Skills */
+        .skill-group { margin-bottom: 0.85rem; font-size: 0.96rem; color: var(--ink-soft); line-height: 1.7; }
+        .skill-group .label { color: var(--ink); font-weight: 600; }
+
+        /* Education */
+        .edu {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.2rem;
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .edu:last-child { margin-bottom: 0; }
+
+        .edu-main strong { display: block; font-size: 1rem; color: var(--ink); margin-bottom: 0.15rem; }
+        .edu-main .inst { color: var(--ink-soft); font-size: 0.92rem; }
+        .edu-main .note { color: var(--ink-faint); font-size: 0.87rem; margin-top: 0.3rem; font-style: italic; }
+        .edu-years { color: var(--ink-faint); font-size: 0.85rem; white-space: nowrap; }
+
+        /* Contact */
+        .contact-lines { margin-bottom: 1.8rem; }
+        .contact-lines div { margin-bottom: 0.55rem; color: var(--ink-soft); font-size: 0.96rem; }
+        .contact-lines a { color: var(--accent); text-decoration: none; }
+        .contact-lines a:hover { text-decoration: underline; }
+        .contact-lines i { width: 1.1rem; color: var(--ink-faint); margin-right: 0.5rem; }
+
+        .contact-form { max-width: 480px; }
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 0.4rem; }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent white for input background */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            font-size: 1rem;
-            color: var(--text-primary);
-            transition: border-color 0.3s;
+            padding: 0.7rem 0.8rem;
+            background-color: #ffffff;
+            border: 1px solid var(--rule);
+            border-radius: 4px;
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            color: var(--ink);
+            transition: border-color 0.2s;
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-color); /* Accent color on focus */
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
+        .form-group textarea:focus { outline: none; border-color: var(--accent); }
+        .form-group textarea { min-height: 110px; resize: vertical; }
 
         .submit-btn {
-            background-color: var(--accent-color);
-            color: white;
+            background-color: var(--ink);
+            color: var(--paper);
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
+            padding: 0.75rem 1.6rem;
+            font-size: 0.92rem;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
+            transition: background-color 0.2s;
         }
+        .submit-btn:hover { background-color: var(--accent); }
 
-        .submit-btn:hover {
-            background-color: var(--accent-light);
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 5%;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .footer-logo span {
-            color: var(--accent-color);
-        }
-
-        .footer-text {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            line-height: 1.7;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
-            color: var(--text-secondary);
-            font-size: 1.3rem;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .copyright {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        /* Work Experience Section */
-        .experience {
-            background-color: var(--light-bg);
-        }
-
-        .experience-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            display: flex;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-left: 60px;
-        }
-
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: 20px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: var(--accent-color);
-        }
-
-        .experience-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        .experience-content {
-            flex: 1;
-        }
-
-        .experience-date {
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .experience-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-company {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .experience-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            padding-left: 1rem;
-        }
-
-        .experience-description li {
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .experience-description li::before {
-            content: '•';
-            color: var(--accent-color);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-
-        /* Update the contact section number */
-        #contact .number {
-            content: "06"; /* Update this to be one higher than experience */
-        }
-
-        /* Volunteer Work Section */
-        .volunteer {
-            background-color: var(--dark-bg);
-        }
-
-        .volunteer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .volunteer-item {
-            background-color: var(--light-bg);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .volunteer-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .volunteer-header {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-            align-items: center;
-        }
-
-        .volunteer-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .volunteer-date {
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .volunteer-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .volunteer-org {
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .volunteer-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* Image Gallery Styles */
-        .volunteer-gallery {
-            position: relative;
-            margin: 2rem 0;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .gallery-scroll {
-            display: flex;
-            gap: 1.5rem;
-            padding: 1rem 0;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
-        }
-
-        .gallery-scroll::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
-        }
-
-        .gallery-item {
-            scroll-snap-align: start;
-            flex: 0 0 300px; /* Fixed width for each item */
-            height: 200px;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.03);
-        }
-
-        .scroll-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background-color: rgba(110, 69, 226, 0.8); /* Using rgba with accent-color */
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            transition: all 0.3s;
-            opacity: 0.8;
-        }
-
-        .scroll-btn:hover {
-            background-color: var(--accent-color);
-            opacity: 1;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .scroll-btn.left {
-            left: 15px;
-        }
-
-        .scroll-btn.right {
-            right: 15px;
-        }
-
-        /* Hide buttons when not scrollable */
-        .scroll-btn.hidden {
-            display: none;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .gallery-item {
-                flex: 0 0 250px; /* Smaller items on tablets */
-                height: 180px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-item {
-                flex: 0 0 200px; /* Even smaller on mobile */
-                height: 150px;
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            :root {
-                --section-padding: 100px;
-            }
-
-            .hero-text h1 {
-                font-size: 4rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero-content,
-            .about-content,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-text {
-                order: 1;
-                text-align: center;
-            }
-
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .about-image {
-                order: -1;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .hero-text h1 {
-                font-size: 3.5rem;
-            }
-
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --section-padding: 80px;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background-color: var(--dark-bg);
-                flex-direction: column;
-                align-items: center;
-                padding: 3rem 0;
-                transition: left 0.3s;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .projects-grid,
-            .design-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            :root {
-                --section-padding: 60px;
-            }
-
-            .hero {
-                padding-top: 140px;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
-                letter-spacing: -1px;
-            }
-
-            .hero-text p {
-                font-size: 1.1rem;
-            }
-
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-
-            .education-item {
-                padding-left: 50px;
-            }
-
-            .education-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-
-            .education-title {
-                font-size: 1.2rem;
-            }
-        }
-
-        /* Update contact section number */
-        #contact .number {
-            content: "07"; /* Adjusted to 07, assuming Volunteer Work is 06 */
-        }
-
-        /* NEW MODAL STYLES */
+        /* Modal / loading indicator */
         .modal-overlay {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            inset: 0;
+            background-color: rgba(32, 31, 28, 0.5);
             justify-content: center;
             align-items: center;
-            z-index: 1000; /* Ensure it's on top */
+            z-index: 2000;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
+        .modal-overlay.active { display: flex; opacity: 1; }
 
         .modal-content {
-            background-color: var(--light-bg); /* Use light-bg for modal content */
-            padding: 30px;
-            border-radius: 10px;
+            background-color: var(--paper);
+            padding: 2rem;
+            border-radius: 6px;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
-            max-width: 400px;
+            max-width: 380px;
             width: 90%;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-content h3 {
-            color: var(--accent-color); /* Use accent color for modal heading */
-            margin-bottom: 15px;
-            font-size: 24px;
-        }
-
-        .modal-content p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: var(--text-secondary); /* Use text-secondary for modal paragraph */
-        }
+        .modal-content h3 { font-family: var(--serif); color: var(--ink); margin-bottom: 0.7rem; font-size: 1.3rem; }
+        .modal-content p { color: var(--ink-soft); margin-bottom: 1.2rem; font-size: 0.95rem; }
 
         .modal-close-btn {
-            background-color: var(--accent-color); /* Use accent color for close button */
-            color: white;
-            padding: 10px 20px;
+            background-color: var(--ink);
+            color: var(--paper);
             border: none;
-            border-radius: 5px;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
         }
+        .modal-close-btn:hover { background-color: var(--accent); }
 
-        .modal-close-btn:hover {
-            background-color: var(--accent-light); /* Use accent-light on hover */
-        }
-
-        /* NEW LOADING INDICATOR STYLES */
-        .loading-indicator {
-            display: none; /* Hidden by default */
-            text-align: center;
-            margin-top: 20px;
-            color: var(--accent-color); /* Use accent color for loading text */
-            font-size: 1.1em;
-        }
-
-        .loading-indicator.active {
-            display: block;
-        }
+        .loading-indicator { display: none; text-align: center; margin-top: 1rem; color: var(--ink-soft); font-size: 0.9rem; }
+        .loading-indicator.active { display: block; }
 
         .loading-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid var(--accent-color); /* Use accent color for spinner */
+            border: 3px solid var(--rule);
+            border-top: 3px solid var(--accent);
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 10px auto;
+            margin: 0 auto 0.6rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Footer */
+        footer.site-footer { padding: 2.6rem 0 3rem; border-top: 1px solid var(--rule); text-align: center; }
+        .footer-social { display: flex; justify-content: center; gap: 1.3rem; margin-bottom: 1rem; }
+        .footer-social a { color: var(--ink-soft); font-size: 1.05rem; text-decoration: none; }
+        .footer-social a:hover { color: var(--accent); }
+        .footer-copy { color: var(--ink-faint); font-size: 0.85rem; }
+
+        .fade-target.visible,
+        .pub.visible,
+        .item.visible,
+        .exp.visible,
+        .edu.visible,
+        .service-item.visible { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 70%;
+                max-width: 280px;
+                background-color: var(--paper);
+                flex-direction: column;
+                padding: 6rem 2rem;
+                gap: 1.4rem;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                border-left: 1px solid var(--rule);
+            }
+            .nav-links.active { transform: translateX(0); }
+            .hamburger { display: block; }
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @media (max-width: 600px) {
+            .hero { padding-top: 120px; }
+            .hero-flex { flex-direction: column; align-items: flex-start; text-align: left; }
+            .hero h1 { font-size: 2.1rem; }
+
+            .edu { flex-direction: column; gap: 0.2rem; }
+            .exp-head { flex-direction: column; align-items: flex-start; }
         }
     </style>
-
 </head>
 <body>
     <!-- Navigation -->
-    <header>
-        <a href="#" class="logo">Mumtaheena<span>Binte</span><span>Ahmed</span></a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#design">Designs</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#volunteer">Volunteer</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
+    <header class="site-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-name">Mumtaheena Binte Ahmed</a>
+            <ul class="nav-links" id="primaryNav">
+                <li><a href="#about">About</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav"><i class="fas fa-bars"></i></button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hi, I'm <span>Mumtaheena Binte Ahmed.</span></h1>
-                <h2>Developer & Designer</h2>
-                <p>I create beautiful, functional digital experiences with a focus on clean design and intuitive user interfaces.</p>
-                <a href="#projects" class="cta-button">
-                    View My Work
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-        <a href="#about" class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
-            Scroll Down
-        </a>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="section-title">
-            <span class="number">01</span>
-            <h2>About Me</h2>
-        </div>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="images/DP.jpg" alt="Mumtaheena" class="profile-pic">
-            </div>
-            <div class="about-text">
-                <h3>Who am I?</h3>
-                <p>I'm a passionate developer and designer with expertise in both coding and visual design. My unique combination of technical and creative skills allows me to bridge the gap between functionality and aesthetics.</p>
-                <p>With 3 years of experience in the industry, I've worked on a variety of projects ranging from web applications to branding and digital art. I believe in creating solutions that are not only efficient but also visually compelling.</p>
-                <div class="skills">
-    <h4>My Skills</h4>
-    <div class="skill-tags">
-        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-        <span class="skill-tag"><i class="fas fa-server"></i> Django</span>
-        <span class="skill-tag"><i class="fab fa-js-square"></i> JavaScript</span>
-        <span class="skill-tag"><i class="fas fa-code"></i> TypeScript</span>
-        <span class="skill-tag"><i class="fas fa-database"></i> MySQL</span>
-        <span class="skill-tag"><i class="fas fa-pencil-ruler"></i> UI/UX Design</span>
-        <span class="skill-tag"><i class="fab fa-figma"></i> Figma</span>
-        <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
-        <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
-        <span class="skill-tag"><i class="fas fa-paint-brush"></i> Graphic Design</span>
-        <span class="skill-tag"><i class="fas fa-tasks"></i> Project Management</span>
-    </div>
-</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section" id="projects">
-        <div class="section-title">
-            <span class="number">02</span>
-            <h2>Development Projects</h2>
-        </div>
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="images/Eatsure.png" alt="Project 1">
-                </div>
-                <div class="project-info">
-                    <h3>EatSURE: Food Safety Management System</h3>
-                    <p>A cloud-enabled mobile application designed to enhance food safety through real-time reporting, complaint tracking, and data-driven decision-making. The app aims to improve transparency, accountability, and efficiency in food safety regulation, with a focus on consumer involvement and protection.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Django</span>
-                        <span class="project-tag">HTML/CSS</span>
-                        <span class="project-tag">ML</span>
-                        <span class="project-tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://afiahr.pythonanywhere.com/"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="https://github.com/Mumta-heena/EatSure-A-Django-Project-Food-Complaint-Website-Soft-Dev"><i class="fab fa-github"></i> Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="images/ShoukhinHut.png" alt="Project 2">
-                </div>
-                <div class="project-info">
-                    <h3>Shoukhin Hut: A Cultural Ecommerce Platform</h3>
-                    <p>A Django-powered e-commerce platform dedicated to preserving and promoting Bangladesh's rich cultural heritage. By connecting artisans and sellers with buyers seeking authentic local products, Shoukhin Hut aims to support traditional crafts and empower local communities.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Django</span>
-                        <span class="project-tag">HTML/CSS</span>
-                        <span class="project-tag">Pillow</span>
-                        <span class="project-tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <!-- <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a> -->
-                        <a href="https://github.com/Mumta-heena/Shoukhin-Hut-A-Cultural-Ecommerce-Platform"><i class="fab fa-github"></i> Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="images/DailyMoodTracker.png" alt="Project 3">
-                </div>
-                <div class="project-info">
-                    <h3>Daily Mood Tracker Application</h3>
-                    <p>A web application built with Laravel and Bootstrap that allows users to log their daily moods, view a history of their entries, and filter them by date.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Laravel</span>
-                        <span class="project-tag">PHP</span>
-                        <span class="project-tag">MySQL</span>
-                        <span class="project-tag">Blade</span>
-                        <span class="project-tag">Tailwind CSS</span>
-                        <span class="project-tag">Chart.Js</span>
-                        <span class="project-tag">Composer</span>
-                    </div>
-                    <div class="project-links">
-                        <!-- <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a> -->
-                        <a href="https://github.com/Mumta-heena/DailyMoodTracker"><i class="fab fa-github"></i> Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="images/pluckpro.png" alt="Project 3">
-                </div>
-                <div class="project-info">
-                    <h3>PluckPro - Arduino-Based Fruit Picking Robot</h3>
-                    <p>PluckPro is an Arduino-powered fruit-picking robot designed to automate the process of detecting and collecting fruits using a combination of sensors, actuators, and control mechanisms. The system integrates an ultrasonic sensor, PIR sensors, servo motors, an ESP8266 module, and a 1-DoF mechanical arm to detect, approach, and pluck fruits with precision. This project serves as a foundation for agricultural automation, reducing manual labor and enhancing efficiency in fruit harvesting.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Arduino UNO</span>
-                        <span class="project-tag">C++</span>
-                        <span class="project-tag">PIR Sensor</span>
-                        <span class="project-tag">Servo Motor</span>
-                        <span class="project-tag">L293D Motor Driver Shield</span>
-                        <span class="project-tag">ESP8266 Wi-Fi Module</span>
-                    </div>
-                    <div class="project-links">
-                        <!-- <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a> -->
-                        <a href="https://github.com/Mumta-heena/PluckPro"><i class="fab fa-github"></i> Source Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="images/What-to-do.png" alt="Project 3">
-                </div>
-                <div class="project-info">
-                    <h3>What To Do? - A Simple To-Do List Application</h3>
-                    <p>What To Do? is a simple and efficient to-do list application designed to help users organize tasks, track progress, and stay productive. The app provides an intuitive interface for adding, editing, and deleting tasks, making it easy to manage daily activities.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML/CSS</span>
-                        <span class="project-tag">Node.Js</span>
-                        <span class="project-tag">JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <!-- <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a> -->
-                        <a href="https://github.com/Mumta-heena/What-To-Do-"><i class="fab fa-github"></i> Source Code</a>
-                    </div>
+    <!-- Hero -->
+    <section class="hero wrap">
+        <div class="hero-flex">
+            <img src="images/profile.webp" alt="Portrait of Mumtaheena Binte Ahmed" class="hero-photo">
+            <div>
+                <h1>Mumtaheena Binte Ahmed</h1>
+                <div class="role">Researcher — Computer Vision &amp; Natural Language Processing</div>
+                <div class="affil">Teaching Assistant, Department of CSE, University of Asia Pacific</div>
+                <div class="links">
+                    <a href="mailto:mumtaheenaahmed24@gmail.com">Email</a><span class="sep">·</span>
+                    <a href="https://github.com/Mumta-heena" target="_blank" rel="noopener">GitHub</a><span class="sep">·</span>
+                    <a href="https://www.linkedin.com/in/mumtaheena-binte-ahmed/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Design Work Section -->
-    <section class="section design" id="design">
-        <div class="section-title">
-            <span class="number">03</span>
-            <h2>Design Works</h2>
+    <!-- Research Interests -->
+    <section class="section wrap" id="about">
+        <h2>Research Interests</h2>
+        <p class="lede">I work on computer vision and NLP, with a focus on making deep learning models interpretable in high-stakes settings — medical imaging and industrial inspection. My current work spans self-supervised representation learning, object detection, and explainability. I also build LLM-based agentic systems with retrieval and tool-calling.</p>
+    </section>
+
+    <!-- Publications -->
+    <section class="section wrap" id="publications">
+        <h2>Publications</h2>
+
+        <div class="pub">
+            <h3>An Explainable Deep Learning Framework for Multiclass Fabric Defect Detection Using Contrastive Learning and Grad-CAM</h3>
+            <div class="authors">Afiah, <strong>M. B. Ahmed</strong>, A. Al Redwan, B. J. Ferdosi</div>
+            <div class="venue">In preparation.</div>
         </div>
-        <div class="design-grid">
-            <!-- Design 1 -->
-            <div class="design-card">
-                <div class="design-image">
-                    <img src="images/Logos.png" alt="Design 1">
-                </div>
-                <div class="design-info">
-                    <h3>Brand Logos</h3>
-                    <p>Logo design and visual identity for clubs and startups.</p>
-                </div>
-            </div>
 
-            <!-- Design 2 -->
-            <div class="design-card">
-                <div class="design-image">
-                    <img src="images/Mobile UI.png" alt="Design 2">
-                </div>
-                <div class="design-info">
-                    <h3>Mobile App UI</h3>
-                    <p>User interface design for a startup house renting application.</p>
-                </div>
-            </div>
+        <div class="pub">
+            <h3>Instance-Aware Diffusion Augmentation for Multiple Instance Learning in Weakly Supervised Pathology</h3>
+            <div class="authors"><strong>M. B. Ahmed</strong>, R. R. Biswas, S. A. Hamim, S. M. R. Al-Masud, and M. F. Mridha</div>
+            <div class="venue">Manuscript under review.</div>
+        </div>
+    </section>
 
-            <!-- Design 3 -->
-            <div class="design-card">
-                <div class="design-image">
-                    <img src="images/Mobile UI 2.png" alt="Design 2">
-                </div>
-                <div class="design-info">
-                    <h3>Website App UI</h3>
-                    <p>User interface design for a startup lube corporation.</p>
-                </div>
-            </div>
+    <!-- Research (ongoing) -->
+    <section class="section wrap" id="research">
+        <h2>Research</h2>
+        <div class="item"><strong>Wood Powder Volume Estimation</strong> — Computer vision pipeline for estimating volume from image data.</div>
+        <div class="item"><strong>Retrieval-Augmented Conversational Systems</strong> — RAG assistants for e-commerce product search and multilingual library retrieval.</div>
+    </section>
 
-            <!-- Design 4 -->
-            <div class="design-card">
-                <div class="design-image">
-                    <img src="images/Vector1.png" alt="Design 4">
-                </div>
-                <div class="design-info">
-                    <h3>Vector Design</h3>
-                    <p>Vector artwork created as a personal hobby.</p>
-                </div>
-            </div>
+    <!-- Experience -->
+    <section class="section wrap" id="experience">
+        <h2>Experience</h2>
 
-            <!-- Design 5 -->
-            <div class="design-card">
-                <div class="design-image">
-                    <img src="images/Vector2.png" alt="Design 4">
-                </div>
-                <div class="design-info">
-                    <h3>Digital Art</h3>
-                    <p>Digital artwork created as a personal hobby.</p>
-                </div>
+        <div class="exp">
+            <div class="exp-head">
+                <div><span class="exp-role">Teaching Assistant &amp; Researcher</span> <span class="exp-org">— University of Asia Pacific</span></div>
+                <div class="exp-dates">Jan 2026 – Present</div>
+            </div>
+            <ul>
+                <li>Conducted lab classes for Object Oriented Programming I (Java, CSE 202) and Data Structures &amp; Algorithms II (CSE 208).</li>
+            </ul>
+        </div>
+
+        <div class="exp">
+            <div class="exp-head">
+                <div><span class="exp-role">Big-Data Analyst Intern</span> <span class="exp-org">— Zylo, Tech Cloud Ltd.</span></div>
+                <div class="exp-dates">Oct 2025 – Jan 2026</div>
+            </div>
+            <ul>
+                <li>Trained on Confluent Kafka and event-driven architecture; built a real-time weather-alert pipeline with dashboard visualization.</li>
+            </ul>
+        </div>
+
+        <div class="exp">
+            <div class="exp-head">
+                <div><span class="exp-role">UI/UX Designer</span> <span class="exp-org">— Sprint Devs</span></div>
+                <div class="exp-dates">Apr 2025 – Aug 2025</div>
+            </div>
+            <ul>
+                <li>Designed wireframes and prototypes in Figma for an Employee Management System, collaborating with developers on implementation.</li>
+            </ul>
+        </div>
+
+        <div class="exp">
+            <p class="exp-line"><strong>Content Writing &amp; QA</strong> — VisaCent, 247SEO, Upwork · 2020 – 2024</p>
+        </div>
+    </section>
+
+    <!-- Awards & Recognition -->
+    <section class="section wrap" id="awards">
+        <h2>Awards &amp; Recognition</h2>
+        <p class="inline-list">Vice Chancellor's Award (6×, consecutive)<span class="sep">·</span>Dean's Award (2×)</p>
+    </section>
+
+    <!-- Service -->
+    <section class="section wrap" id="service">
+        <h2>Service</h2>
+        <p class="service-item"><strong>Invited Peer Reviewer</strong> — <em>Neural Networks</em> (Elsevier)</p>
+        <p class="service-item"><strong>Selected Participant</strong> — NIPPON AI Dojo, Chowa Giken Corporation × AI Samurai, supported by Japan's Ministry of Economy, Trade and Industry</p>
+    </section>
+
+    <!-- Software Projects -->
+    <section class="section wrap" id="projects">
+        <h2>Software Projects</h2>
+
+        <div class="item project">
+            <h3 class="item-title">EatSure — Food Safety Management System</h3>
+            <p>Review categorisation and fake-review detection for food safety complaints, with real-time reporting and complaint tracking.</p>
+            <div class="tech">Python · Django · ML</div>
+            <div class="links">
+                <a href="https://github.com/Mumta-heena/EatSure-A-Django-Project-Food-Complaint-Website-Soft-Dev" target="_blank" rel="noopener">Code</a>
+            </div>
+        </div>
+
+        <div class="item project">
+            <h3 class="item-title">Shoukhin Hut — Cultural E-commerce Platform</h3>
+            <p>Marketplace connecting artisans of traditional Bangladeshi crafts with buyers.</p>
+            <div class="tech">Django · JavaScript</div>
+            <div class="links">
+                <a href="https://github.com/Mumta-heena/Shoukhin-Hut-A-Cultural-Ecommerce-Platform" target="_blank" rel="noopener">Code</a>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section class="section" id="education">
-        <div class="section-title">
-            <span class="number">04</span>
-            <h2>Education</h2>
+    <!-- Skills -->
+    <section class="section wrap" id="skills">
+        <h2>Skills</h2>
+        <p class="skill-group"><span class="label">Research</span> — Computer Vision · Deep Learning · Machine Learning · Natural Language Processing · Self-Supervised &amp; Contrastive Learning · Object Detection · Explainable AI · Medical Image Analysis</p>
+        <p class="skill-group"><span class="label">LLM &amp; Applied AI</span> — Large Language Models · AI Agents · Retrieval-Augmented Generation · Prompt Engineering</p>
+        <p class="skill-group"><span class="label">Engineering</span> — Python · PyTorch · OpenCV · SQL · Docker · Git · Gradio · Big Data Analytics (Hadoop/Spark ecosystem)</p>
+        <p class="skill-group"><span class="label">Academic</span> — LaTeX · Academic Writing · Peer Review</p>
+        <p class="skill-group"><span class="label">Languages</span> — Bangla · English · Japanese (JLPT N4)</p>
+    </section>
+
+    <!-- Education -->
+    <section class="section wrap" id="education">
+        <h2>Education</h2>
+
+        <div class="edu">
+            <div class="edu-main">
+                <strong>BSc in Computer Science and Engineering</strong>
+                <div class="inst">University of Asia Pacific, Bangladesh</div>
+                <div class="note">Focus: computer vision, deep learning, and explainable AI.</div>
+            </div>
+            <div class="edu-years">2022 – 2025</div>
         </div>
-        <div class="education-container">
-            <!-- Education 1 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2021 - 2025</div>
-                    <h3 class="education-title">Bachelor of Science in Computer Science and Engineering</h3>
-                    <div class="education-institution">University of Asia Pacific, Bangladesh</div>
-                    <p class="education-description">Specialized in Software Development. Ongoing. Completed coursework in technical disciplines.</p>
-                </div>
-            </div>
 
-            <!-- Education 2 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2024</div>
-                    <h3 class="education-title">Data Science Math Skills Certification</h3>
-                    <div class="education-institution">Coursera</div>
-                    <p class="education-description">Completed a course to get insights on Data Science and relevant math skills.</p>
-                </div>
+        <div class="edu">
+            <div class="edu-main">
+                <strong>Data Science Math Skills</strong>
+                <div class="inst">Coursera</div>
             </div>
+            <div class="edu-years">2024</div>
+        </div>
 
-            <!-- Education 3 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2024</div>
-                    <h3 class="education-title">Graphic Design Workshop</h3>
-                    <div class="education-institution">WIT Institute, Bangladesh</div>
-                    <p class="education-description">Attended a workshop on basic principles of visual design, typography, and digital media.</p>
-                </div>
+        <div class="edu">
+            <div class="edu-main">
+                <strong>Higher Secondary Certificate</strong>
+                <div class="inst">Mirpur Cantonment Public School and College, Bangladesh</div>
             </div>
+            <div class="edu-years">2019 – 2020</div>
+        </div>
 
-            <!-- Education 4 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2019 - 2020</div>
-                    <h3 class="education-title">Higher Secondary Certificate</h3>
-                    <div class="education-institution">Mirpur Cantonment Public School and College, Bangladesh</div>
-                    <p class="education-description">From Science Group</p>
-                </div>
+        <div class="edu">
+            <div class="edu-main">
+                <strong>Secondary School Certificate</strong>
+                <div class="inst">Chetona Model Academy, Bangladesh</div>
             </div>
+            <div class="edu-years">2017 – 2018</div>
+        </div>
 
-            <!-- Education 5 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2018</div>
-                    <h3 class="education-title">Secondary School Certificate</h3>
-                    <div class="education-institution">Greenview High School, Bangladesh</div>
-                    <p class="education-description">From Science Group</p>
-                </div>
+        <div class="edu">
+            <div class="edu-main">
+                <strong>Elementary School</strong>
+                <div class="inst">Niitsu Daini Shogakko, Japan</div>
             </div>
-
-            <!-- Education 6 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2015</div>
-                    <h3 class="education-title">Junior School Certificate</h3>
-                    <div class="education-institution">Chetona Model Academy, Bangladesh</div>
-                    <p class="education-description">From Science Group</p>
-                </div>
-            </div>
-
-            <!-- Education 7 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2010 - 2016</div>
-                    <h3 class="education-title">Primary School</h3>
-                    <div class="education-institution">Chetona Model Academy, Bangladesh</div>
-                </div>
-            </div>
-
-            <!-- Education 8 -->
-            <div class="education-item">
-                <div class="education-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="education-content">
-                    <div class="education-date">2006 - 2009</div>
-                    <h3 class="education-title">Elementary School</h3>
-                    <div class="education-institution">Niitsu Daini Shogakko, Japan</div>
-                </div>
-            </div>
-            
+            <div class="edu-years">2006 – 2009</div>
         </div>
     </section>
 
-    <!-- Work Experiences -->
-<section class="section experience" id="experience">
-    <div class="section-title">
-        <span class="number">05</span>
-        <h2>Work Experience</h2>
-    </div>
-    <div class="experience-container">
-        <!-- Experience 1 -->
-        <div class="experience-item">
-            <div class="experience-icon">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-                <div class="experience-date">October 2025 - Present</div>
-                <h3 class="experience-title">Big-Data Analyst Intern</h3>
-                <div class="experience-company">Zylo</div>
-                <ul class="experience-description">
-                    <li>Participated in an intensive training program on Confluent Kafka and event-driven architecture to support the company's real-time data initiatives.</li>
-                    <li>Gained proficiency in core Kafka concepts including topics, partitions, producers, consumers, and consumer groups within the confluent cloud ecosystem.</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Experience 1 -->
-        <div class="experience-item">
-            <div class="experience-icon">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-                <div class="experience-date">April 2025 - August 2025</div>
-                <h3 class="experience-title">UI/UX Designer</h3>
-                <div class="experience-company">Sprint Devs</div>
-                <ul class="experience-description">
-                    <li>Migrated UI to Figma for more functionality </li>
-                    <li>Conducted user research and collaborated with teams to design new page features</li>
-                    <li>Prepared wireframes and prototypes for the Employee Management System</li>
-                    <li>Collaborated with developers to ensure design implementation accuracy</li>
-                </ul>
-            </div>
+    <!-- Volunteer -->
+    <section class="section wrap" id="volunteer">
+        <h2>Volunteer</h2>
+        <p class="inline-list"><strong>45th ICPC World Finals, Dhaka</strong> · November 2022 — Volunteer, participant transport and venue coordination.</p>
+    </section>
+
+    <!-- Design -->
+    <section class="section wrap" id="design">
+        <h2>Design</h2>
+        <p class="inline-list">Logo, UI, and vector work: <a href="https://www.behance.net/mumtaheena_ahmed" target="_blank" rel="noopener">Behance</a><span class="sep">·</span><a href="https://dribbble.com/Mumtaheena" target="_blank" rel="noopener">Dribbble</a></p>
+    </section>
+
+    <!-- Contact -->
+    <section class="section wrap" id="contact">
+        <h2>Contact</h2>
+
+        <div class="contact-lines">
+            <div><i class="fas fa-envelope"></i><a href="mailto:mumtaheenaahmed24@gmail.com">mumtaheenaahmed24@gmail.com</a></div>
+            <div><i class="fas fa-location-dot"></i>Dhaka, Bangladesh</div>
         </div>
 
-        <!-- Experience 2 -->
-        <div class="experience-item">
-            <div class="experience-icon">
-                <i class="fas fa-briefcase"></i>
+        <form id="contactForm" class="contact-form" action="https://formsubmit.co/mumtaheenaahmed24@gmail.com" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
             </div>
-            <div class="experience-content">
-                <div class="experience-date">Aug 2024 - Oct 2024</div>
-                <h3 class="experience-title">Content Writer</h3>
-                <div class="experience-company">247SEO</div>
-                <ul class="experience-description">
-                    <li>Created engaging content on food and recipes</li>
-                    <li>Collaborated with the team to generate new content ideas</li>
-                    <li>Prepared recipe content for seamless presentation on the website</li>
-                    <li>Improved page visualization and generated AI images for individual recipes.</li>
-                </ul>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
 
-        <!-- Experience 3 -->
-        <div class="experience-item">
-            <div class="experience-icon">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-                <div class="experience-date">Jul 2023 - Sep 2023</div>
-                <h3 class="experience-title">Content Manager</h3>
-                <div class="experience-company">VisaCent</div>
-                <ul class="experience-description">
-                    <li>Created new content for Visa News and travel topics</li>
-                    <li>Collaborated with the team to brainstorm and generate fresh content ideas</li>
-                    <li>Edited, proofread, and updated previous content to ensure relevance and accuracy</li>
-                    <li>Managed team meetings to discuss new ideas and contributed to projects involving AI image generation</li>
-                </ul>
-            </div>
-        </div>
+            <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio!">
+            <input type="hidden" name="_captcha" value="false">
 
-        <!-- Experience 4 -->
-        <div class="experience-item">
-            <div class="experience-icon">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-                <div class="experience-date">Dec 2020 - Jan  2023</div>
-                <h3 class="experience-title">QA Analyst and Content Writer</h3>
-                <div class="experience-company">VisaCent</div>
-                <ul class="experience-description">
-                    <li>Edited and analyzed Visa content and application guides</li>
-                    <li>Proofread web content and updated content for recent news</li>
-                    <li>Edited, proofread, and updated previous content to ensure relevance and accuracy</li>
-                    <li>Maintained up-to-date information for Visa News and travel-related topics, ensuring accuracy and relevance across all platforms</li>
-                </ul>
-            </div>
-        </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
 
-        <!-- Experience 5 -->
-        <div class="experience-item">
-            <div class="experience-icon">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="experience-content">
-                <div class="experience-date">Jul 2020 - Mar 2021</div>
-                <h3 class="experience-title">Graphics Designer and Content Writer</h3>
-                <div class="experience-company">Upwork Inc.</div>
-                <ul class="experience-description">
-                    <li>Refined and rewrote articles to improve their impact</li>
-                    <li>Translated advertisements from English to Bangla</li>
-                    <li>Created content for an Islamic Prayer Guide app</li>
-                    <li>Designed weekly workbooks, ensuring all materials were both engaging and professional</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Volunteer Experiences -->
-    <section class="section volunteer" id="volunteer">
-        <div class="section-title">
-            <span class="number">06</span>
-            <h2>Volunteer Works</h2>
-        </div>
-        
-        <div class="volunteer-container">
-            <!-- Volunteer Experience 1 -->
-            <div class="volunteer-item">
-                <div class="volunteer-content">
-                    <div class="volunteer-header">
-                        <div class="volunteer-icon">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <div>
-                            <div class="volunteer-date">November 2022</div>
-                            <h3 class="volunteer-title">45th ICPC World Finals, Dhaka</h3>
-                            <div class="volunteer-org">International Collegiate Programming Contest</div>
-                        </div>
-                    </div>
-                    <p class="volunteer-description">
-                        Facilitated participant transportation from hotels to the venue.
-                        Helped to manage participant flow in crowded areas.
-                        Providing directions to participants, guiding them to specific areas.
-                    </p>
-                    
-                    <!-- Image Gallery -->
-                    <div class="volunteer-gallery">
-                        <div class="gallery-scroll">
-                            <div class="gallery-item"><img src="images/ICPC/1.jpg" alt="Me inside the Venue"></div>
-                            <div class="gallery-item"><img src="images/ICPC/11.jpg" alt="Transport Team photo"></div>
-                            <div class="gallery-item"><img src="images/ICPC/2.jpg" alt="World Champion 1"></div>
-                            <div class="gallery-item"><img src="images/ICPC/3.jpg" alt="World Champion 2"></div>
-                            <div class="gallery-item"><img src="images/ICPC/4.jpg" alt="With our Dean Sir"></div>
-                            <div class="gallery-item"><img src="images/ICPC/5.jpg" alt="With our Dean Sirs"></div>
-                            <div class="gallery-item"><img src="images/ICPC/6.jpg" alt="Board"></div>
-                            <div class="gallery-item"><img src="images/ICPC/7.jpg" alt="Participants' Areas"></div>
-                            <div class="gallery-item"><img src="images/ICPC/8.jpg" alt="Evening View"></div>
-                            <div class="gallery-item"><img src="images/ICPC/12.jpg" alt="Catto"></div>                        
-                        </div>
-                        <button class="scroll-btn left"><i class="fas fa-chevron-left"></i></button>
-                        <button class="scroll-btn right"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
-            </div>
+        <div id="loadingIndicator" class="loading-indicator">
+            <div class="loading-spinner"></div>
+            Sending message...
         </div>
     </section>
 
-    <section class="section contact" id="contact">
-    <div class="section-title">
-        <!-- Updated section number to 07, assuming it's the 7th section now -->
-        <span class="number">07</span>
-        <h2>Get In Touch</h2>
-    </div>
-    <div class="contact-container">
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-text">
-                    <h4>Email</h4>
-                    <!-- Corrected mailto: link -->
-                    <a href="mailto:mumtaheenaahmed24@gmail.com">mumtaheenaahmed24@gmail.com</a>
-                </div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <div class="contact-text">
-                    <h4>Phone</h4>
-                    <a href="tel:+8801865074193">+8801865074193</a>
-                </div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
-                <div class="contact-text">
-                    <h4>Location</h4>
-                    <a href="https://www.google.com/maps/place/Mirpur,+Dhaka/@23.8104699,90.3622807,14z/data=!3m1!4b1!4m6!3m5!1s0x3755c0c1c61277db:0xc7d18838730e2e59!8m2!3d23.8223486!4d90.3654204!16s%2Fm%2F02phghv?entry=ttu&g_ep=EgoyMDI1MDcxNS4xIKXMDSoASAFQAw%3D%3D">Mirpur, Dhaka, Bangladesh</a>
-                </div>
-            </div>
-        </div>
-        <div class="contact-form">
-            <!-- Form updated for Formsubmit.co with ID and name attributes -->
-            <form id="contactForm" action="https://formsubmit.co/mumtaheenaahmed24@gmail.com" method="POST">
-                <!-- IMPORTANT: Replace 'your_email@example.com' with your actual email address -->
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required> <!-- Added name="name" -->
-                </div>
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required> <!-- Added name="email" -->
-                </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" required></textarea> <!-- Added name="message" -->
-                </div>
-
-                <!-- Hidden inputs for Formsubmit.co configuration -->
-                <input type="hidden" name="_subject" value="New Contact Form Submission from Portfolio!">
-                <input type="hidden" name="_captcha" value="false">
-                <!-- _next hidden input is NOT needed here as JS handles the success pop-up -->
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-            <!-- Loading Indicator for form submission -->
-            <div id="loadingIndicator" class="loading-indicator">
-                <div class="loading-spinner"></div>
-                Sending message...
-            </div>
+    <!-- Success modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Message Sent!</h3>
+            <p>Thank you for reaching out! I've received your message and will get back to you as soon as possible.</p>
+            <button class="modal-close-btn" id="closeModalBtn">Close</button>
         </div>
     </div>
-</section>
-
-<!-- The Modal/Pop-up Structure (placed outside the section for better layering) -->
-<div id="successModal" class="modal-overlay">
-    <div class="modal-content">
-        <h3>Message Sent!</h3>
-        <p>Thank you for reaching out! I've received your message and will get back to you as soon as possible.</p>
-        <button class="modal-close-btn" id="closeModalBtn">Close</button>
-    </div>
-</div>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <a href="#" class="footer-logo">Mumtaheena<span>BinteAhmed</span></a>
-            <p class="footer-text">Feel free to reach out to me through my social media <br>for any kind of collaborations!</p>
-            <div class="social-links">
-                <a href="https://github.com/Mumta-heena"><i class="fab fa-github"></i></a>
-                <a href="https://dribbble.com/Mumtaheena"><i class="fab fa-dribbble"></i></a>
-                <a href="https://www.linkedin.com/in/mumtaheena-binte-ahmed-0742601b2/"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.behance.net/mumtaheena_ahmed"><i class="fab fa-behance"></i></a>
-                <a href="https://www.instagram.com/mumu__rice/"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/mumtaheena.ahmed/"><i class="fab fa-facebook"></i></a>
-
-            </div>
-            <p class="copyright">© 2025 Mumtaheena Binte Ahmed. All rights reserved.</p>
+    <footer class="site-footer wrap">
+        <div class="footer-social">
+            <a href="https://github.com/Mumta-heena" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/mumtaheena-binte-ahmed/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.behance.net/mumtaheena_ahmed" target="_blank" rel="noopener" aria-label="Behance"><i class="fab fa-behance" aria-hidden="true"></i></a>
+            <a href="https://dribbble.com/Mumtaheena" target="_blank" rel="noopener" aria-label="Dribbble"><i class="fab fa-dribbble" aria-hidden="true"></i></a>
         </div>
+        <p class="footer-copy">© 2026 Mumtaheena Binte Ahmed.</p>
     </footer>
 
     <script>
@@ -1817,192 +688,109 @@
         const navLinks = document.querySelector('.nav-links');
 
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('fa-times');
+            const isOpen = navLinks.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+            hamburger.setAttribute('aria-expanded', String(isOpen));
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                hamburger.classList.remove('fa-times');
-            });
-        });
-        // Volunteer gallery scroll functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleries = document.querySelectorAll('.volunteer-gallery');
-            
-            galleries.forEach(gallery => {
-                const scrollContainer = gallery.querySelector('.gallery-scroll');
-                const leftBtn = gallery.querySelector('.scroll-btn.left');
-                const rightBtn = gallery.querySelector('.scroll-btn.right');
-                const galleryItems = gallery.querySelectorAll('.gallery-item');
-                
-                // Set initial button visibility
-                updateButtonVisibility();
-                
-                // Scroll left button
-                leftBtn.addEventListener('click', () => {
-                    scrollContainer.scrollBy({
-                        left: -300,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Scroll right button
-                rightBtn.addEventListener('click', () => {
-                    scrollContainer.scrollBy({
-                        left: 300,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Update button visibility on scroll
-                scrollContainer.addEventListener('scroll', updateButtonVisibility);
-                
-                function updateButtonVisibility() {
-                    // Show/hide left button
-                    if (scrollContainer.scrollLeft <= 10) {
-                        leftBtn.classList.add('hidden');
-                    } else {
-                        leftBtn.classList.remove('hidden');
-                    }
-                    
-                    // Show/hide right button
-                    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-                    if (scrollContainer.scrollLeft >= maxScroll - 10) {
-                        rightBtn.classList.add('hidden');
-                    } else {
-                        rightBtn.classList.remove('hidden');
-                    }
-                }
-                
-                // Also update on window resize
-                window.addEventListener('resize', updateButtonVisibility);
+                hamburger.querySelector('i').classList.remove('fa-times');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
+            anchor.addEventListener('click', function (e) {
                 const targetId = this.getAttribute('href');
+
+                if (targetId.length <= 1) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
                 const targetElement = document.querySelector(targetId);
-                
                 if (targetElement) {
+                    e.preventDefault();
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Header scroll effect
+        // Nav bar shrink-on-scroll
+        const navInner = document.querySelector('.nav-inner');
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.padding = '15px 5%';
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.2)';
-            } else {
-                header.style.padding = '20px 5%';
-                header.style.boxShadow = 'none';
-            }
+            navInner.style.padding = window.scrollY > 40 ? '11px 40px' : '16px 40px';
         });
 
-        // Animation on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.project-card, .design-card, .about-content, .contact-container, .education-item');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+        // Fade in on scroll
+        const revealSelector = '.pub, .item, .exp, .edu, .service-item';
+        const revealElements = document.querySelectorAll(revealSelector);
+
+        function reveal() {
+            revealElements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight / 1.1) {
+                    el.classList.add('visible');
                 }
             });
-        };
+        }
 
-        // Set initial state for animation
-        document.querySelectorAll('.project-card, .design-card, .about-content, .contact-container, .education-item').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('load', reveal);
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            loadingIndicator.classList.add('active');
+            const submitButton = contactForm.querySelector('.submit-btn');
+            submitButton.disabled = true;
+
+            const formAction = contactForm.action;
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(formAction, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    successModal.classList.add('active');
+                    contactForm.reset();
+                } else {
+                    console.error('Form submission failed:', response.status, response.statusText);
+                    alert('Oops! There was an error sending your message. Please try again later.');
+                }
+            } catch (error) {
+                console.error('Network error or unexpected issue:', error);
+                alert('An unexpected error occurred. Please check your internet connection and try again.');
+            } finally {
+                loadingIndicator.classList.remove('active');
+                submitButton.disabled = false;
+            }
         });
 
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-
-        // Get references to the form, modal, and loading indicator elements
-    const contactForm = document.getElementById('contactForm');
-    const successModal = document.getElementById('successModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const loadingIndicator = document.getElementById('loadingIndicator');
-
-    // Add an event listener for the form submission
-    contactForm.addEventListener('submit', async (event) => {
-        // Prevent the default form submission behavior (which would cause a page reload)
-        event.preventDefault();
-
-        // Show loading indicator
-        loadingIndicator.classList.add('active');
-        // Disable the submit button to prevent multiple submissions
-        const submitButton = contactForm.querySelector('.submit-btn');
-        submitButton.disabled = true;
-
-        // Get the form's action URL (where the data will be sent, i.e., Formsubmit.co)
-        const formAction = contactForm.action;
-
-        // Create a FormData object from the form, which automatically collects all input values
-        const formData = new FormData(contactForm);
-
-        try {
-            // Send the form data using the Fetch API
-            const response = await fetch(formAction, {
-                method: 'POST', // Use POST method for sending form data
-                body: formData, // The FormData object contains all form fields
-                // Formsubmit.co handles content-type automatically with FormData
-            });
-
-            // Check if the response was successful (status code 2xx)
-            if (response.ok) {
-                // If successful, show the success modal
-                successModal.classList.add('active');
-                // Clear the form fields after successful submission
-                contactForm.reset();
-            } else {
-                // If the response was not OK, log the error and show an alert
-                console.error('Form submission failed:', response.status, response.statusText);
-                // Using a simple alert for error, you could make a custom error modal too
-                alert('Oops! There was an error sending your message. Please try again later.');
-            }
-        } catch (error) {
-            // Catch any network errors or other exceptions during the fetch operation
-            console.error('Network error or unexpected issue:', error);
-            alert('An unexpected error occurred. Please check your internet connection and try again.');
-        } finally {
-            // Hide loading indicator regardless of success or failure
-            loadingIndicator.classList.remove('active');
-            // Re-enable the submit button
-            submitButton.disabled = false;
-        }
-    });
-
-    // Add event listener to the close button of the modal
-    closeModalBtn.addEventListener('click', () => {
-        // Hide the success modal when the close button is clicked
-        successModal.classList.remove('active');
-    });
-
-    // Optional: Close modal if user clicks outside the modal content
-    successModal.addEventListener('click', (event) => {
-        if (event.target === successModal) { // Check if the click was directly on the overlay
+        closeModalBtn.addEventListener('click', () => {
             successModal.classList.remove('active');
-        }
-    });
+        });
+
+        successModal.addEventListener('click', (event) => {
+            if (event.target === successModal) {
+                successModal.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
