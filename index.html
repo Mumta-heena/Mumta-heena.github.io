@@ -11,12 +11,12 @@
     <meta property="og:url" content="https://mumta-heena.github.io/">
     <meta property="og:site_name" content="Mumtaheena Binte Ahmed">
     <meta property="og:title" content="Mumtaheena Binte Ahmed | Machine Learning Researcher">
-    <meta property="og:description" content="Computer Vision and Machine learning for healthcare, medical imaging and vision-language models. M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific.">
+    <meta property="og:description" content="Machine learning for healthcare, medical imaging and vision-language models. M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific.">
     <meta property="og:image" content="https://mumta-heena.github.io/images/profile.webp">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Mumtaheena Binte Ahmed | Machine Learning Researcher">
-    <meta name="twitter:description" content="Computer Vision and Machine learning for healthcare, medical imaging and vision-language models. M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific.">
+    <meta name="twitter:description" content="Machine learning for healthcare, medical imaging and vision-language models. M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific.">
     <meta name="twitter:image" content="https://mumta-heena.github.io/images/profile.webp">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -85,7 +85,7 @@
             white-space: nowrap;
         }
 
-        .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+        .nav-links { display: flex; gap: 0; list-style: none; }
 
         .nav-links a {
             font-size: 0.8rem;
@@ -95,6 +95,10 @@
             text-decoration: none;
             white-space: nowrap;
             transition: color 0.2s;
+            /* larger invisible click area around each nav word */
+            display: block;
+            padding: 14px 0.8rem;
+            margin: -14px 0;
         }
 
         .nav-links a:hover { color: var(--accent); }
@@ -107,6 +111,8 @@
             background: none;
             border: none;
             padding: 0.3rem;
+            position: relative;
+            z-index: 1001; /* keep the close (X) button above the open mobile menu */
         }
 
         /* Hero */
@@ -431,12 +437,13 @@
                 background-color: var(--paper);
                 flex-direction: column;
                 padding: 6rem 2rem;
-                gap: 1.4rem;
+                gap: 0.2rem;
                 transform: translateX(100%);
                 transition: transform 0.3s ease;
                 border-left: 1px solid var(--rule);
             }
             .nav-links.active { transform: translateX(0); }
+            .nav-links a { margin: 0; padding: 0.7rem 0.4rem; }
             .hamburger { display: block; }
         }
 
