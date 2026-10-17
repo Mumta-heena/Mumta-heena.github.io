@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mumtaheena Binte Ahmed | Machine Learning Researcher</title>
-    <meta name="description" content="Mumtaheena Binte Ahmed — M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific. Computer Vision, Machine learning for healthcare, medical image analysis, anomaly detection and vision-language models.">
+    <meta name="description" content="Mumtaheena Binte Ahmed — M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific. Machine learning for healthcare, medical image analysis, anomaly detection and vision-language models.">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
     <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Mumtaheena Binte Ahmed | Machine Learning Researcher">
-    <meta name="twitter:description" content="Machine learning for healthcare, medical imaging and vision-language models. M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific.">
+    <meta name="twitter:description" content="Computer Vision and Machine learning for healthcare, medical imaging and vision-language models. M.Sc. student and Teaching Assistant, Department of CSE, University of Asia Pacific.">
     <meta name="twitter:image" content="https://mumta-heena.github.io/images/profile.webp">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -388,6 +388,37 @@
         .edu.visible,
         .service-item.visible { opacity: 1; transform: translateY(0); }
 
+        /* Animated background: soft colour wash + faint node network */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -20%;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(38% 32% at 18% 22%, rgba(51, 58, 107, 0.07), transparent 70%),
+                radial-gradient(34% 30% at 82% 30%, rgba(168, 118, 62, 0.07), transparent 70%),
+                radial-gradient(40% 34% at 55% 85%, rgba(51, 58, 107, 0.05), transparent 70%);
+            animation: wash-drift 40s ease-in-out infinite alternate;
+        }
+        @keyframes wash-drift {
+            0%   { transform: translate3d(0, 0, 0) scale(1); }
+            50%  { transform: translate3d(3%, -2%, 0) scale(1.05); }
+            100% { transform: translate3d(-2%, 3%, 0) scale(1); }
+        }
+        #bg-net {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .wrap, footer.site-footer { position: relative; z-index: 1; }
+        @media (prefers-reduced-motion: reduce) {
+            body::before { animation: none; }
+        }
+
         /* Responsive */
         @media (max-width: 960px) {
             .nav-links {
@@ -420,6 +451,7 @@
     </style>
 </head>
 <body>
+    <canvas id="bg-net" aria-hidden="true"></canvas>
     <!-- Navigation -->
     <header class="site-nav">
         <div class="nav-inner">
@@ -725,6 +757,74 @@
     </footer>
 
     <script>
+        // Faint animated node network in the background
+        (function () {
+            const canvas = document.getElementById('bg-net');
+            const ctx = canvas.getContext('2d');
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const LINK = 150;              // max distance for a connecting line (px)
+            const DOT = 'rgba(51, 58, 107, 0.28)';
+            let w, h, dpr, nodes = [], mouse = { x: -9999, y: -9999 }, raf = null;
+
+            function resize() {
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                w = window.innerWidth; h = window.innerHeight;
+                canvas.width = w * dpr; canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                const count = Math.min(70, Math.round((w * h) / 22000));
+                nodes = Array.from({ length: count }, () => ({
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    vx: (Math.random() - 0.5) * 0.25,
+                    vy: (Math.random() - 0.5) * 0.25,
+                    r: 1 + Math.random() * 1.4
+                }));
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, w, h);
+                for (let i = 0; i < nodes.length; i++) {
+                    const a = nodes[i];
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const b = nodes[j];
+                        const d = Math.hypot(a.x - b.x, a.y - b.y);
+                        if (d < LINK) {
+                            ctx.strokeStyle = 'rgba(51, 58, 107,' + (0.13 * (1 - d / LINK)).toFixed(3) + ')';
+                            ctx.lineWidth = 0.8;
+                            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+                        }
+                    }
+                    const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+                    if (dm < LINK * 1.2) {
+                        ctx.strokeStyle = 'rgba(168, 118, 62,' + (0.22 * (1 - dm / (LINK * 1.2))).toFixed(3) + ')';
+                        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+                    }
+                    ctx.fillStyle = DOT;
+                    ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+                }
+            }
+
+            function step() {
+                for (const n of nodes) {
+                    n.x += n.vx; n.y += n.vy;
+                    if (n.x < -20) n.x = w + 20; else if (n.x > w + 20) n.x = -20;
+                    if (n.y < -20) n.y = h + 20; else if (n.y > h + 20) n.y = -20;
+                }
+                draw();
+                raf = requestAnimationFrame(step);
+            }
+
+            function start() { if (!reduce && raf === null) raf = requestAnimationFrame(step); }
+            function stop() { if (raf !== null) { cancelAnimationFrame(raf); raf = null; } }
+
+            window.addEventListener('resize', () => { resize(); draw(); });
+            window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+            window.addEventListener('mouseout', () => { mouse.x = mouse.y = -9999; });
+            document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+
+            resize(); draw(); start();
+        })();
+
         // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
