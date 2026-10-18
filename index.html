@@ -116,7 +116,7 @@
         }
 
         /* Hero */
-        .hero { padding: 150px 0 60px; }
+        .hero { padding-top: 150px; padding-bottom: 60px; }
 
         .hero-flex { display: flex; gap: 2.2rem; align-items: center; }
 
@@ -157,7 +157,7 @@
         .hero .links .sep { color: var(--ink-faint); margin: 0 0.5rem; }
 
         /* Sections */
-        .section { padding: 3.2rem 0; border-top: 1px solid var(--rule); }
+        .section { padding-top: 3.2rem; padding-bottom: 3.2rem; border-top: 1px solid var(--rule); }
         .section:first-of-type { border-top: none; }
 
         .section h2 {
@@ -239,6 +239,10 @@
         .inline-list .sep { color: var(--ink-faint); margin: 0 0.5rem; }
         .inline-list a { color: var(--accent); text-decoration: none; }
         .inline-list a:hover { text-decoration: underline; }
+        .award-list { margin-left: 1.1rem; color: var(--ink-soft); font-size: 0.98rem; }
+        .award-list li { margin-bottom: 0.45rem; }
+        .award-list strong { color: var(--ink); }
+        .award-list .yr { color: var(--ink-faint); font-size: 0.88rem; white-space: nowrap; }
 
         /* Service */
         .service-item {
@@ -381,7 +385,7 @@
         @keyframes spin { to { transform: rotate(360deg); } }
 
         /* Footer */
-        footer.site-footer { padding: 2.6rem 0 3rem; border-top: 1px solid var(--rule); text-align: center; }
+        footer.site-footer { padding-top: 2.6rem; padding-bottom: 3rem; border-top: 1px solid var(--rule); text-align: center; }
         .footer-social { display: flex; justify-content: center; gap: 1.3rem; margin-bottom: 1rem; }
         .footer-social a { color: var(--ink-soft); font-size: 1.05rem; text-decoration: none; }
         .footer-social a:hover { color: var(--accent); }
@@ -448,7 +452,9 @@
         }
 
         @media (max-width: 600px) {
-            .hero { padding-top: 120px; }
+            .wrap { padding-left: 20px; padding-right: 20px; }
+            .nav-inner { padding-left: 20px; padding-right: 20px; }
+            .hero { padding-top: 110px; }
             .hero-flex { flex-direction: column; align-items: flex-start; text-align: left; }
             .hero h1 { font-size: 2.1rem; }
 
@@ -504,18 +510,6 @@
         <h2>Publications</h2>
 
         <div class="pub">
-            <h3>What Actually Drives Profit in Telecom Churn Retention: Profit-Aligned Targeting versus Accuracy and Calibration</h3>
-            <div class="authors"><strong>M. B. Ahmed</strong> and K. M. Z. Monsur</div>
-            <div class="venue">11th IEEE Asia-Pacific Conference on Computer Science and Data Engineering (CSDE 2026), Cox's Bazar, Bangladesh. Accepted, to appear.</div>
-        </div>
-
-        <div class="pub">
-            <h3>Instance-Aware Diffusion Augmentation for Multiple Instance Learning in Weakly Supervised Pathology</h3>
-            <div class="authors"><strong>M. B. Ahmed</strong>, R. R. Biswas, S. A. Hamim, S. M. R. Al-Masud, and M. F. Mridha</div>
-            <div class="venue">Under review at a Q1 journal.</div>
-        </div>
-
-        <div class="pub">
             <h3>FreqAnomaly: Frequency-Decomposed Reconstruction for Unsupervised Brain MRI Anomaly Detection</h3>
             <div class="authors">R. R. Biswas, <strong>M. B. Ahmed</strong>, S. A. Hamim, S. M. R. Al-Masud, and M. F. Mridha</div>
             <div class="venue">In preparation.</div>
@@ -528,18 +522,31 @@
         </div>
 
         <div class="pub">
+            <h3>Instance-Aware Diffusion Augmentation for Multiple Instance Learning in Weakly Supervised Pathology</h3>
+            <div class="authors"><strong>M. B. Ahmed</strong>, R. R. Biswas, S. A. Hamim, S. M. R. Al-Masud, and M. F. Mridha</div>
+            <div class="venue">Under review at a Q1 journal.</div>
+        </div>
+
+        <div class="pub">
             <h3>Bangla Local Language Generation Using Generative AI</h3>
             <div class="authors">N. Nahar, <strong>M. B. Ahmed</strong>, L. Hasan, B. S. Diba, A. K. Saha, and J. D. Plabon</div>
             <div class="venue">Book chapter, under review.</div>
+        </div>
+
+        <div class="pub">
+            <h3>What Actually Drives Profit in Telecom Churn Retention: Profit-Aligned Targeting versus Accuracy and Calibration</h3>
+            <div class="authors"><strong>M. B. Ahmed</strong> and K. M. Z. Monsur</div>
+            <div class="venue">11th IEEE Asia-Pacific Conference on Computer Science and Data Engineering (CSDE 2026), Cox's Bazar, Bangladesh. Accepted, to appear.</div>
         </div>
     </section>
 
     <!-- Research (ongoing) -->
     <section class="section wrap" id="research">
         <h2>Research</h2>
-        <div class="item"><strong>Vision-Language Reasoning for Bangla Structured Documents</strong> — M.Sc. thesis: question answering over Bangla charts and tables. <span class="status">Ongoing · Supervisor: Prof. Dr. Shah Murtaza Rashid Al Masud</span></div>
         <div class="item"><strong>Diffusion Augmentation for Computational Pathology</strong> — Data augmentation for weakly supervised whole-slide image classification. <span class="status">Under review · with Prof. Dr. M. F. Mridha</span></div>
+        <div class="item"><strong>Vision-Language Reasoning for Bangla Structured Documents</strong> — M.Sc. thesis: question answering over Bangla charts and tables. <span class="status">Ongoing · Supervisor: Prof. Dr. Shah Murtaza Rashid Al Masud</span></div>
         <div class="item"><strong>Unsupervised Anomaly Detection in Brain MRI</strong> — Frequency-domain, reconstruction-based anomaly detection. <span class="status">In preparation · with Prof. Dr. M. F. Mridha</span></div>
+        <div class="item"><strong>Fabric Defect Detection Using Fabric Type Classification</strong> — Undergraduate thesis: fabric-type-aware defect detection for woven and knitted fabrics. <span class="status">Supervisor: Prof. Dr. Bilkis Jamal Ferdosi</span></div>
         <div class="item"><strong>Wood Powder Volume Estimation</strong> — Nippon AI Dojo 2026 team project; named Best Group at the final presentation.</div>
         <div class="item"><strong>Retrieval-Augmented Conversational Systems</strong> — RAG assistants for e-commerce product search and multilingual library retrieval.</div>
     </section>
@@ -599,7 +606,13 @@
     <!-- Awards & Recognition -->
     <section class="section wrap" id="awards">
         <h2>Awards &amp; Recognition</h2>
-        <p class="inline-list"><strong>Best Group</strong>, Nippon AI Dojo 2026 (2026)<span class="sep">·</span>Vice Chancellor's Award (6×, consecutive, 2022–2024)<span class="sep">·</span>Dean's Award (2×, 2021, 2025)<span class="sep">·</span>Bronze Prize (2×), Niigata Prefecture Hard-Pen Calligraphy Contest (2008, 2009)<span class="sep">·</span>Honorable Mention (3×), Niigata art exhibitions (2008–2009)</p>
+        <ul class="award-list">
+            <li><strong>Best Group</strong>, Nippon AI Dojo 2026, Chowa Giken Corporation, Japan <span class="yr">· 2026</span></li>
+            <li><strong>Vice Chancellor's Award</strong> for academic excellence, UAP (6× consecutive) <span class="yr">· 2022 – 2024</span></li>
+            <li><strong>Dean's Award</strong> for academic excellence, UAP (2×) <span class="yr">· 2021, 2025</span></li>
+            <li><strong>Bronze Prize</strong> (2×), Niigata Prefecture Hard-Pen Calligraphy Contest, Japan <span class="yr">· 2008, 2009</span></li>
+            <li><strong>Honorable Mention</strong> (3×), Niigata Education Art Exhibition and Niigata Prefecture Junior Art Exhibition, Japan <span class="yr">· 2008 – 2009</span></li>
+        </ul>
     </section>
 
     <!-- Service -->
@@ -674,7 +687,7 @@
         <div class="edu">
             <div class="edu-main">
                 <strong>Higher Secondary Certificate</strong>
-                <div class="inst">Mirpur Cantonment Public School and College, Bangladesh</div>
+                <div class="inst">Mirpur Cantonment Public School and College, Bangladesh · GPA 5.00/5.00</div>
             </div>
             <div class="edu-years">2019 – 2020</div>
         </div>
@@ -682,14 +695,22 @@
         <div class="edu">
             <div class="edu-main">
                 <strong>Secondary School Certificate</strong>
-                <div class="inst">Chetona Model Academy, Bangladesh</div>
+                <div class="inst">Chetona Model Academy, Bangladesh · GPA 5.00/5.00</div>
             </div>
             <div class="edu-years">2017 – 2018</div>
         </div>
 
         <div class="edu">
             <div class="edu-main">
-                <strong>Primary Education (Grades 1–3), Japanese-medium</strong>
+                <strong>Primary School Certificate</strong>
+                <div class="inst">Chetona Model Academy, Bangladesh · GPA 5.00/5.00</div>
+            </div>
+            <div class="edu-years">2012</div>
+        </div>
+
+        <div class="edu">
+            <div class="edu-main">
+                <strong>Elementary School (Grades 1–3, Japanese-medium)</strong>
                 <div class="inst">Niitsu Daini Elementary School (新潟市立新津第二小学校), Niigata, Japan</div>
             </div>
             <div class="edu-years">2007 – 2010</div>
@@ -875,7 +896,8 @@
         // Nav bar shrink-on-scroll
         const navInner = document.querySelector('.nav-inner');
         window.addEventListener('scroll', () => {
-            navInner.style.padding = window.scrollY > 40 ? '11px 40px' : '16px 40px';
+            const v = window.scrollY > 40 ? '11px' : '16px';
+            navInner.style.paddingTop = v; navInner.style.paddingBottom = v;
         });
 
         // Fade in on scroll
